@@ -4,18 +4,25 @@ import React from "react";
 
 const RecipeSearch = () => {
 	const [ingredients, setIngredients] = useState([]);
+	const [recipeList, setRecipeList] = useState([]);
 
-	const recipeHandler = (event) => {
-		// event.preventDefault();
-	};
+	// const recipeHandler = (event) => {
+	// 	// event.preventDefault();
+	// };
 
 	const getRecipes = () => {
-		fetch();
-		// `https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
+		fetch(
+			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				setRecipeList(data);
+			});
 	};
 
 	return (
-		<Form onSubmit={recipeHandler}>
+		<Form>
+			{/* <Form onSubmit={recipeHandler}> */}
 			<InputCont>
 				<Input
 					type="text"
@@ -25,6 +32,7 @@ const RecipeSearch = () => {
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
+			<ResultsCont></ResultsCont>
 		</Form>
 	);
 };
@@ -44,3 +52,5 @@ const InputCont = styled.div`
 `;
 
 const SearchBtn = styled.button``;
+
+const ResultsCont = styled.div``;

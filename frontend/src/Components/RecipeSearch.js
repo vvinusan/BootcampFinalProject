@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
+import RecipeList from "./RecipeList";
 
 const RecipeSearch = () => {
-	const [ingredients, setIngredients] = useState([]);
+	const [ingredients, setIngredients] = useState("");
 	const [recipeList, setRecipeList] = useState([]);
 
 	// const recipeHandler = (event) => {
@@ -32,14 +33,21 @@ const RecipeSearch = () => {
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
-			<ResultsCont></ResultsCont>
+			<ResultsCont>
+				<RecipeList />
+			</ResultsCont>
 		</Form>
 	);
 };
 
 export default RecipeSearch;
 
-const Form = styled.form``;
+const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 20px;
+`;
 
 const Input = styled.input`
 	width: 500px;
@@ -49,6 +57,7 @@ const Input = styled.input`
 
 const InputCont = styled.div`
 	display: flex;
+	padding-bottom: 20px;
 `;
 
 const SearchBtn = styled.button``;

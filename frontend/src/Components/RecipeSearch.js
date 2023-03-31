@@ -1,45 +1,63 @@
+import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import React from "react";
+import RecipeList from "./RecipeList";
 
 const RecipeSearch = () => {
-	const [ingredients, setIngredients] = useState([]);
+	const [ingredients, setIngredients] = useState("");
 	const [recipeList, setRecipeList] = useState([]);
 
-	// const recipeHandler = (event) => {
-	// 	// event.preventDefault();
-	// };
+	const ingredientHandler = (event) => {
+		setIngredients(event.target.value);
+	};
+	console.log(ingredients);
 
 	const getRecipes = () => {
+		console.log(ingredients);
 		fetch(
 			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
 		)
-			.then((response) => response.json())
+			.then((res) => res.json())
 			.then((data) => {
+				console.log(data);
 				setRecipeList(data);
+			})
+
+			.catch((error) => {
+				console.log(error);
 			});
 	};
-
+	console.log(recipeList);
 	return (
 		<Form>
-			{/* <Form onSubmit={recipeHandler}> */}
 			<InputCont>
 				<Input
 					type="text"
 					value={ingredients}
 					placeholder="Please seperate ingredients with a comma and no space"
-					onChange={(event) => setIngredients(event.target.value)}
+					onChange={ingredientHandler}
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
-			<ResultsCont></ResultsCont>
+			<ResultsCont>
+				{/* <RecipeList recipeList={recipeList} /> */}
+
+				{recipeList.length !== 0 && (
+					<RecipeList recipeList={recipeList} />
+				)}
+			</ResultsCont>
 		</Form>
 	);
 };
 
 export default RecipeSearch;
 
-const Form = styled.form``;
+const Form = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 20px;
+`;
 
 const Input = styled.input`
 	width: 500px;
@@ -49,6 +67,7 @@ const Input = styled.input`
 
 const InputCont = styled.div`
 	display: flex;
+	padding-bottom: 20px;
 `;
 
 const SearchBtn = styled.button``;

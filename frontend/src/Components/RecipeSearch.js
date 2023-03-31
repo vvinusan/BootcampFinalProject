@@ -7,17 +7,25 @@ const RecipeSearch = () => {
 	const [ingredients, setIngredients] = useState("");
 	const [recipeList, setRecipeList] = useState([]);
 
-	// const recipeHandler = (event) => {
-	// 	// event.preventDefault();
-	// };
+	const ingredientHandler = (event) => {
+		event.preventDefault();
+		setIngredients(event.target.value);
+	};
+	console.log(ingredients);
 
 	const getRecipes = () => {
+		console.log(ingredients);
 		fetch(
 			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
 		)
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				setRecipeList(data);
+			})
+
+			.catch((error) => {
+				console.log(error);
 			});
 	};
 
@@ -29,12 +37,14 @@ const RecipeSearch = () => {
 					type="text"
 					value={ingredients}
 					placeholder="Please seperate ingredients with a comma and no space"
-					onChange={(event) => setIngredients(event.target.value)}
+					onChange={ingredientHandler}
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
 			<ResultsCont>
-				<RecipeList />
+				{recipeList.length !== 0 && (
+					<RecipeList recipeList={recipeList} />
+				)}
 			</ResultsCont>
 		</Form>
 	);

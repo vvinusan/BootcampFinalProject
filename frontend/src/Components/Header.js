@@ -28,7 +28,7 @@ const HomeLink = styled.div`
 	text-decoration: none;
 	color: black;
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
 	align-items: center;
 `;
 

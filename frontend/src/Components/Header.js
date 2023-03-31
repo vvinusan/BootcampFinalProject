@@ -8,6 +8,7 @@ const Header = () => {
 			<Wrapper>
 				<HomeLink>
 					<CompanyName to={"/"}>Easy Dates</CompanyName>
+					<Logo src="../main-logo.png" />
 					<CompanyName to={"/signin"}>Sign In</CompanyName>
 				</HomeLink>
 			</Wrapper>
@@ -19,11 +20,16 @@ const Header = () => {
 	);
 };
 
+const Logo = styled.img`
+	height: 50px;
+`;
+
 const HomeLink = styled.div`
 	text-decoration: none;
 	color: black;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 const NavItem = styled(Link)`
@@ -61,6 +67,8 @@ const Wrapper = styled.div`
 	border-bottom: 5px solid black;
 	width: 100%;
 	align-items: center;
+	justify-content: center;
+	height: 60px;
 `;
 
 const CompanyName = styled(Link)`
@@ -85,6 +93,7 @@ const HeaderWrap = styled.div`
 	width: 100%;
 	justify-content: center;
 	align-items: center;
+	/* height: 60px; */
 `;
 
 export default Header;

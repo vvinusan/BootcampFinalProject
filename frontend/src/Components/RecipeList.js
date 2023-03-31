@@ -40,11 +40,12 @@ const RecipeCont = styled.div`
 	flex-direction: column;
 	padding: 5px;
 	background-color: lightgray;
+	margin: 5px;
 `;
 
 const Title = styled.div``;
 
-const Img = styled.div`
+const Img = styled.img`
 	height: 150px;
 	width: auto;
 `;

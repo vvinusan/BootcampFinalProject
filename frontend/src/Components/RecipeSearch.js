@@ -1,6 +1,6 @@
+import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import React from "react";
 import RecipeList from "./RecipeList";
 
 const RecipeSearch = () => {
@@ -8,7 +8,6 @@ const RecipeSearch = () => {
 	const [recipeList, setRecipeList] = useState([]);
 
 	const ingredientHandler = (event) => {
-		event.preventDefault();
 		setIngredients(event.target.value);
 	};
 	console.log(ingredients);
@@ -18,7 +17,7 @@ const RecipeSearch = () => {
 		fetch(
 			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
 		)
-			.then((response) => response.json())
+			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
 				setRecipeList(data);
@@ -28,10 +27,9 @@ const RecipeSearch = () => {
 				console.log(error);
 			});
 	};
-
+	console.log(recipeList);
 	return (
 		<Form>
-			{/* <Form onSubmit={recipeHandler}> */}
 			<InputCont>
 				<Input
 					type="text"
@@ -42,6 +40,8 @@ const RecipeSearch = () => {
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
 			<ResultsCont>
+				{/* <RecipeList recipeList={recipeList} /> */}
+
 				{recipeList.length !== 0 && (
 					<RecipeList recipeList={recipeList} />
 				)}
@@ -52,7 +52,7 @@ const RecipeSearch = () => {
 
 export default RecipeSearch;
 
-const Form = styled.form`
+const Form = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;

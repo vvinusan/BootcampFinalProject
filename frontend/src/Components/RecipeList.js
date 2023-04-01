@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeList = ({ recipeList }) => {
 	return (
@@ -7,8 +8,10 @@ const RecipeList = ({ recipeList }) => {
 			{recipeList.map((recipe) => {
 				return (
 					<RecipeCont key={recipe.id}>
-						<Title>{recipe.title}</Title>
-						<Img src={recipe.image} />
+						<DetailsLink to={`/recipedetails/${recipe.id}`}>
+							<Title>{recipe.title}</Title>
+							<Img src={recipe.image} />
+						</DetailsLink>
 					</RecipeCont>
 				);
 			})}
@@ -44,6 +47,13 @@ const RecipeCont = styled.div`
 `;
 
 const Title = styled.div``;
+
+const DetailsLink = styled(Link)`
+	color: black;
+	&:visited {
+		color: black;
+	}
+`;
 
 const Img = styled.img`
 	height: 150px;

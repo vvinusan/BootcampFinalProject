@@ -40,8 +40,6 @@ const RecipeSearch = () => {
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
 			<ResultsCont>
-				{/* <RecipeList recipeList={recipeList} /> */}
-
 				{recipeList.length !== 0 && (
 					<RecipeList recipeList={recipeList} />
 				)}

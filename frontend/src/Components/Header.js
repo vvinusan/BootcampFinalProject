@@ -1,20 +1,23 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
+	const { isAuthenticated } = useAuth0();
 	return (
 		<HeaderWrap>
 			<Wrapper>
 				<HomeLink>
 					<CompanyName to={"/"}>Easy Dates</CompanyName>
 					<Logo src="../main-logo.png" />
-					{/* <CompanyName to={"/signin"}>Sign In</CompanyName> */}
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
 				<NavItem to={"/"}>Home</NavItem>
-				<NavItem to={"/favorites"}>Favorites</NavItem>
+				{isAuthenticated && (
+					<NavItem to={"/favorites"}>Favorites</NavItem>
+				)}
 			</NavWrap>
 		</HeaderWrap>
 	);
@@ -43,9 +46,9 @@ const NavItem = styled(Link)`
 	margin: 0px;
 	box-sizing: border-box;
 
-	.leftBorder {
+	/* .leftBorder {
 		border-left: 3px solid black;
-	}
+	} */
 
 	:hover {
 		background-color: darkred;

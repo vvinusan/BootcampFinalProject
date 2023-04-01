@@ -7,8 +7,10 @@ const RecipeList = ({ recipeList }) => {
 			{recipeList.map((recipe) => {
 				return (
 					<RecipeCont key={recipe.id}>
-						<Title>{recipe.title}</Title>
-						<Img src={recipe.image} />
+						<DetailsLink to={`/recipeDetails/${recipe.id}`}>
+							<Title>{recipe.title}</Title>
+							<Img src={recipe.image} />
+						</DetailsLink>
 					</RecipeCont>
 				);
 			})}
@@ -44,6 +46,12 @@ const RecipeCont = styled.div`
 `;
 
 const Title = styled.div``;
+
+const DetailsLink = styled(Link)`
+	&:visited {
+		color: black;
+	}
+`;
 
 const Img = styled.img`
 	height: 150px;

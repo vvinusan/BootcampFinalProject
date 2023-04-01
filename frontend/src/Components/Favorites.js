@@ -7,3 +7,5 @@ const Favorites = () => {
 };
 
 export default Favorites;
+
+//why dont i have access to userAuth0 parameters here???

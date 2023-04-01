@@ -6,17 +6,18 @@ import Favorites from "./Favorites";
 // import SignIn from "./SignIn";
 import styled from "styled-components";
 import LoginBtn from "./LoginBtn";
+import LogoutBtn from "./LogoutBtn";
 
 function App() {
 	return (
 		<Router>
-			{/* <HeadWrap> */}
-			<Header />
-
-			{/* </HeadWrap> */}
+			<HeadWrap>
+				<Header />
+				<LoginBtn />
+				<LogoutBtn />
+			</HeadWrap>
 
 			<Routes>
-				<LoginBtn />
 				<Route path="/" element={<HomePage />} />
 				<Route path="/favorites" element={<Favorites />} />
 				{/* <Route path="/signin" element={<SignIn />} /> */}
@@ -27,7 +28,7 @@ function App() {
 
 export default App;
 
-// const HeadWrap = styled.div`
-// 	display: flex;
-// 	justify-content: space-between;
-// `;
+const HeadWrap = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;

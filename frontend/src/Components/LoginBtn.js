@@ -3,9 +3,13 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const LoginBtn = () => {
-	const { loginWithRedirect } = useAuth0();
+	const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-	return <Btn onClick={() => loginWithRedirect()}>Log In</Btn>;
+	return (
+		!isAuthenticated && (
+			<Btn onClick={() => loginWithRedirect()}>Log In</Btn>
+		)
+	);
 };
 
 export default LoginBtn;

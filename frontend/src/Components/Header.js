@@ -9,7 +9,6 @@ const Header = () => {
 				<HomeLink>
 					<CompanyName to={"/"}>Easy Dates</CompanyName>
 					<Logo src="../main-logo.png" />
-					{/* <CompanyName to={"/signin"}>Sign In</CompanyName> */}
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>

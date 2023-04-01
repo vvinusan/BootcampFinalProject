@@ -22,6 +22,8 @@ const Profile = () => {
 
 export default Profile;
 
+// CAN JUST RENAME THIS TO FAVORITE DETAILS, AND THEN USING THE userid, add and remove dates via Mongodb ENDPOINTS
+
 //PROBLEM WITH BELOW IS THAT AUTH0 user, isLoading and isAuthenticated, ISNT AVAILALBE TO FAVORITES FOR SOME REASON
 
 //DONT THINK I NEED, CAN JUST EXTRACT isAuthenticated FROM userAuth0, TO CHECK IF LOGGED IN

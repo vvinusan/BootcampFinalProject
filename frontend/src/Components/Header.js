@@ -9,7 +9,7 @@ const Header = () => {
 				<HomeLink>
 					<CompanyName to={"/"}>Easy Dates</CompanyName>
 					<Logo src="../main-logo.png" />
-					<CompanyName to={"/signin"}>Sign In</CompanyName>
+					{/* <CompanyName to={"/signin"}>Sign In</CompanyName> */}
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
@@ -28,7 +28,7 @@ const HomeLink = styled.div`
 	text-decoration: none;
 	color: black;
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
 	align-items: center;
 `;
 
@@ -93,7 +93,6 @@ const HeaderWrap = styled.div`
 	width: 100%;
 	justify-content: center;
 	align-items: center;
-	/* height: 60px; */
 `;
 
 export default Header;

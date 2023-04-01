@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 
-const MovieTest = () => {
+const MovieGenres = () => {
 	const [genres, setGenres] = useState([]);
 
 	// const ingredientHandler = (event) => {
@@ -50,7 +50,7 @@ const MovieTest = () => {
 	);
 };
 
-export default MovieTest;
+export default MovieGenres;
 
 const Wrapper = styled.div`
 	display: flex;

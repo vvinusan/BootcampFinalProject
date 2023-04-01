@@ -7,6 +7,7 @@ import styled from "styled-components";
 import LoginBtn from "./LoginBtn";
 import LogoutBtn from "./LogoutBtn";
 import RecipeDetails from "./RecipeDetails";
+import MovieGenres from "./MovieGenres";
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/favorites" element={<Favorites />} />
+				<Route path="/genres" element={<MovieGenres />} />
 				<Route
 					path="/recipedetails/:recipeId"
 					element={<RecipeDetails />}

@@ -1,12 +1,13 @@
 import React from "react";
 import RecipeSearch from "./RecipeSearch";
-import MovieTest from "./MovieTest";
+import MovieGenres from "./MovieGenres";
 
 const HomePage = () => {
 	return (
 		<>
 			<RecipeSearch />
-			<MovieTest />
+			{/* below to be removed */}
+			<MovieGenres />
 		</>
 	);
 };

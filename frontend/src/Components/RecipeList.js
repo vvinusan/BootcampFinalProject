@@ -8,7 +8,7 @@ const RecipeList = ({ recipeList }) => {
 			{recipeList.map((recipe) => {
 				return (
 					<RecipeCont key={recipe.id}>
-						<DetailsLink to={`/recipeDetails/${recipe.id}`}>
+						<DetailsLink to={`/recipedetails/${recipe.id}`}>
 							<Title>{recipe.title}</Title>
 							<Img src={recipe.image} />
 						</DetailsLink>
@@ -49,6 +49,7 @@ const RecipeCont = styled.div`
 const Title = styled.div``;
 
 const DetailsLink = styled(Link)`
+	color: black;
 	&:visited {
 		color: black;
 	}

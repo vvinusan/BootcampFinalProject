@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
 	const { genreId } = useParams();
@@ -35,13 +36,53 @@ const MovieList = () => {
 		return result;
 	};
 
-	const newFive = chooseFiveRandom();
+	const newFive = movies.length > 0 ? chooseFiveRandom() : [];
 
 	console.log(newFive);
-
-	return <Wrapper>movie list</Wrapper>;
+	return (
+		<MainContainer>
+			{newFive.length !== 0 &&
+				newFive.map((movie) => {
+					return (
+						<SubContainer key={movie.id}>
+							<DetailsLink to={`/moviedetails/${movie.id}`}>
+								<Title>{movie.title}</Title>
+								<Img
+									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+									alt={movie.title}
+								/>
+							</DetailsLink>
+						</SubContainer>
+					);
+				})}
+		</MainContainer>
+	);
 };
 
 export default MovieList;
 
-const Wrapper = styled.div``;
+const MainContainer = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+`;
+const SubContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px;
+	background-color: lightgray;
+	margin: 5px;
+`;
+
+const Img = styled.img`
+	width: 200px;
+	height: auto;
+`;
+const Title = styled.div``;
+
+const DetailsLink = styled(Link)`
+	color: black;
+	&:visited {
+		color: black;
+	}
+`;

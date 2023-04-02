@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-// import { useState } from "react";
+import { useState } from "react";
 
 const RecipeDetails = () => {
 	const { recipeId } = useParams();
 
 	console.log(recipeId);
-	// const [recipe, setRecipe] = useState;
+	const [recipe, setRecipe] = useState([]);
 
 	useEffect(() => {
 		fetch(
@@ -17,15 +17,15 @@ const RecipeDetails = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				// setRecipe(data);
+				setRecipe(data);
 			})
 
 			.catch((error) => {
 				console.log(error);
 			});
-	}, []);
+	}, [recipeId]);
 
-	return <MainCont>recipe details</MainCont>;
+	return <MainCont>{recipe.title}</MainCont>;
 };
 
 export default RecipeDetails;

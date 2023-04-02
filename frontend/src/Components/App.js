@@ -9,6 +9,7 @@ import LogoutBtn from "./LogoutBtn";
 import RecipeDetails from "./RecipeDetails";
 import MovieGenres from "./MovieGenres";
 import MovieList from "./MovieList";
+import MovieDetails from "./MovieDetails";
 
 function App() {
 	return (
@@ -27,7 +28,12 @@ function App() {
 					path="/recipedetails/:recipeId"
 					element={<RecipeDetails />}
 				/>
+
 				<Route path="/movielist/:genreId" element={<MovieList />} />
+				<Route
+					path="/moviedetails/:movieId"
+					element={<MovieDetails />}
+				/>
 			</Routes>
 		</Router>
 	);

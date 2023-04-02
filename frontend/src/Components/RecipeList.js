@@ -17,19 +17,6 @@ const RecipeList = ({ recipeList }) => {
 			})}
 		</MainContainer>
 	);
-
-	// {itemList.map((contents) => {
-	//     return (
-	//         <div key={contents.id}>
-	//             <ItemContainer to={`/items/${contents.id}`}>
-	//                 <Image src={contents.imageSrc} />
-	//                 <ItemName>{contents.name}</ItemName>
-	//                 <Seperator></Seperator>
-	//                 <ItemLatName>{contents.latinName}</ItemLatName>
-	//             </ItemContainer>
-	//         </div>
-	//     );
-	// })}
 };
 
 export default RecipeList;

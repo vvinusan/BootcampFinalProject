@@ -3,6 +3,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import ReactDOM from "react-dom/client";
 import App from "./Components/App";
 import reportWebVitals from "./reportWebVitals";
+import Provider from "./Components/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,9 @@ root.render(
 			redirect_uri: window.location.origin,
 		}}
 	>
-		<App />
+		<Provider>
+			<App />
+		</Provider>
 	</Auth0Provider>
 );
 

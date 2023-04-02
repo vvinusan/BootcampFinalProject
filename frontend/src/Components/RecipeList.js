@@ -22,6 +22,7 @@ const RecipeList = ({ recipeList }) => {
 			...formData,
 			[key]: value,
 		});
+		navigate("/genres");
 	};
 
 	console.log(formData);

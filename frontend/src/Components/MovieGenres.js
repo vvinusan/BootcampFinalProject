@@ -27,20 +27,6 @@ const MovieGenres = () => {
 			});
 	}, []);
 
-	// const chooseFiveRandom = movies => {
-	// 	let result = [];
-	// 	let arrayCopy = [...movies];
-	// 	for (let i = 0; i < 5; i++) {
-	// 	  const randomIndex = Math.floor(Math.random() * arrayCopy.length);
-	// 	  result.push(arrayCopy[randomIndex]);
-	// 	  arrayCopy.splice(randomIndex, 1);
-	// 	}
-	// 	return result;
-	//   };
-
-	/* <MoviesLink to={`/recipedetails/${recipe.id}`}> */
-
-	// console.log(result);
 	console.log(genres);
 	return (
 		<Wrapper>

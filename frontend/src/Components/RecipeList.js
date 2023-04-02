@@ -2,40 +2,63 @@ import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Context } from "./Context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RecipeList = ({ recipeList }) => {
-	const [showInfo, setShowInfo] = useState(false);
+	const { choiceData, setChoiceData, userId, setUserId } =
+		useContext(Context);
 
-	const handleShowInfo = () => {
-		setShowInfo(true);
+	const [formData, setFormData] = useState({}); //TEST tbr with choiceData
+	const navigate = useNavigate();
+
+	//upon clicking the Select recipe button,
+	// the handler should also include a use nagivate that brings to MovieGenre,
+	//need to make it a seperate page with its own Route
+
+	const handleChoose = (key, value) => {
+		setFormData({
+			...formData,
+			[key]: value,
+		});
 	};
 
+	console.log(formData);
 	return (
 		<MainContainer>
 			{recipeList.map((recipe) => {
 				return (
 					<RecipeCont key={recipe.id}>
 						<Title>{recipe.title}</Title>
-						<Img src={recipe.image} />
+						<Img src={recipe.image} alt="image of dish" />
 						<IngredCont>
-							<div>Missing Ingreident</div>
+							<div>Missing Ingredient</div>
 							{recipe.missedIngredients.map((missIng) => {
 								return (
-									<Ingred key={missIng.id}>
+									<MissIngred key={missIng.id}>
 										{missIng.original}
-									</Ingred>
+									</MissIngred>
 								);
 							})}
-							<div>Avaiable Ingreident</div>
+							<div>Available Ingredient</div>
 							{recipe.usedIngredients.map((avaiIng) => {
 								return (
-									<Ingred key={avaiIng.id}>
+									<AvaiIngred key={avaiIng.id}>
 										{avaiIng.original}
-									</Ingred>
+									</AvaiIngred>
 								);
 							})}
 						</IngredCont>
-						<Select>Select Recipe</Select>
+						<UserId>{userId}</UserId>
+						<Select
+							value={recipe.id}
+							onClick={(event) =>
+								handleChoose("recipeId", event.target.value)
+							}
+						>
+							Select Recipe
+						</Select>
 					</RecipeCont>
 				);
 			})}
@@ -44,6 +67,8 @@ const RecipeList = ({ recipeList }) => {
 };
 
 export default RecipeList;
+
+const UserId = styled.p``;
 
 const MainContainer = styled.div`
 	display: flex;
@@ -77,7 +102,11 @@ const Img = styled.img`
 	width: auto;
 `;
 
-const Ingred = styled.div``;
+const MissIngred = styled.div`
+	color: red;
+`;
+
+const AvaiIngred = styled.div``;
 
 const IngredCont = styled.div`
 	display: flex;

@@ -44,6 +44,23 @@ const RecipeSearch = () => {
 					<RecipeList recipeList={recipeList} />
 				)}
 			</ResultsCont>
+
+			{/* This is where Recipe details would go
+			const MyButton = () => {
+  const [showInfo, setShowInfo] = useState(false);
+
+  const handleClick = () => {
+    setShowInfo(true);
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Show Info</button>
+      {showInfo && <p>recipe details</p>}
+    </div>
+  );
+};			
+			*/}
 		</Form>
 	);
 };

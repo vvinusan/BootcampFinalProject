@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MovieGenres = () => {
 	const [genres, setGenres] = useState([]);
@@ -44,7 +45,13 @@ const MovieGenres = () => {
 	return (
 		<Wrapper>
 			{genres.map((genre) => {
-				return <GenreCont key={genre.id}>{genre.name}</GenreCont>;
+				return (
+					<GenreCont key={genre.id}>
+						<MoviesLink to={`/movielist/${genre.id}`}>
+							{genre.name}
+						</MoviesLink>
+					</GenreCont>
+				);
 			})}
 		</Wrapper>
 	);
@@ -57,6 +64,7 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	background-color: #f7d1dd;
 `;
 
 const GenreCont = styled.div`
@@ -70,4 +78,15 @@ const GenreCont = styled.div`
 	width: auto;
 	margin: 5px;
 	background-color: darkred;
+`;
+
+const MoviesLink = styled(Link)`
+	text-decoration: none;
+	color: black;
+	&:visited {
+		color: black;
+	}
+	&:hover {
+		color: white;
+	}
 `;

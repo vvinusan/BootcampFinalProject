@@ -96,6 +96,7 @@ const HeaderWrap = styled.div`
 	width: 100%;
 	justify-content: center;
 	align-items: center;
+	margin: 0;
 `;
 
 export default Header;

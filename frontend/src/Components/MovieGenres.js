@@ -27,9 +27,9 @@ const MovieGenres = () => {
 			});
 	}, []);
 
-	// const chooseFiveRandom = array => {
+	// const chooseFiveRandom = movies => {
 	// 	let result = [];
-	// 	let arrayCopy = [...array];
+	// 	let arrayCopy = [...movies];
 	// 	for (let i = 0; i < 5; i++) {
 	// 	  const randomIndex = Math.floor(Math.random() * arrayCopy.length);
 	// 	  result.push(arrayCopy[randomIndex]);

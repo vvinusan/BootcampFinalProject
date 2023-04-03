@@ -3,13 +3,30 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Context } from "./Context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
 	const { genreId } = useParams();
 	console.log(genreId);
+	const { choiceData, setChoiceData, userId, setUserId } =
+		useContext(Context);
+
+	const [formData, setFormData] = useState({}); //TEST tbr with choiceData
+	// const navigate = useNavigate();
 
 	const [movies, setMovies] = useState([]);
+
+	const handleChoose = (key, value) => {
+		setFormData({
+			...formData,
+			[key]: value,
+		});
+	};
+
+	console.log(formData);
 
 	useEffect(() => {
 		fetch(
@@ -45,13 +62,21 @@ const MovieList = () => {
 				newFive.map((movie) => {
 					return (
 						<SubContainer key={movie.id}>
-							<DetailsLink to={`/moviedetails/${movie.id}`}>
-								<Title>{movie.title}</Title>
-								<Img
-									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-									alt={movie.title}
-								/>
-							</DetailsLink>
+							<Title>{movie.title}</Title>
+							<Img
+								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+								alt={movie.title}
+							/>
+							<Overview>{movie.overview}</Overview>
+							<Rating>{movie.vote_average}/10</Rating>
+							<Select
+								value={movie.id}
+								onClick={(event) =>
+									handleChoose("movieId", event.target.value)
+								}
+							>
+								Select Recipe
+							</Select>
 						</SubContainer>
 					);
 				})}
@@ -80,9 +105,19 @@ const Img = styled.img`
 `;
 const Title = styled.div``;
 
+const Rating = styled.div``;
+
+const Overview = styled.div``;
+
+const Select = styled.button``;
+
+{
+	/* <DetailsLink to={`/moviedetails/${movie.id}`}></DetailsLink>
+
 const DetailsLink = styled(Link)`
 	color: black;
 	&:visited {
 		color: black;
 	}
-`;
+`; */
+}

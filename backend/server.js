@@ -4,7 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 // IMPORT HANDLERS
-const { addFavorite } = require("./handlers");
+const { addFavorite, getFavorites } = require("./handlers");
 
 const PORT = 4000;
 
@@ -28,6 +28,9 @@ express()
 
 	//Saved recipe, movie combo to favorites
 	.post("/addFavorite", addFavorite)
+
+	//Retrieves entire favorites collection
+	.get("/getFavorites", getFavorites)
 
 	//Error message
 	.get("*", (req, res) => {

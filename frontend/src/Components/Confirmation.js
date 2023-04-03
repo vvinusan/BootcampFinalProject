@@ -69,8 +69,12 @@ const Confirmation = () => {
 		<MainCont>
 			confirmation
 			<Title>{recipe.length !== 0 && recipe.title}</Title>
+			<RecipeImg src={recipe.image} alt={recipe.title} />
 			<Title>{movie.length !== 0 && movie.title}</Title>
-			{/* Save only resets choiceData for now */}
+			<MovieImg
+				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+				alt={movie.title}
+			/>
 			<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
 		</MainCont>
 	);
@@ -84,5 +88,9 @@ const MainCont = styled.div`
 `;
 
 const Title = styled.div``;
+
+const MovieImg = styled.img``;
+
+const RecipeImg = styled.img``;
 
 const SaveBtn = styled.button``;

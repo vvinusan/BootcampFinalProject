@@ -15,7 +15,7 @@ const MovieList = () => {
 		useContext(Context);
 
 	const [formData, setFormData] = useState({}); //TEST tbr with choiceData
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [movies, setMovies] = useState([]);
 
@@ -23,7 +23,9 @@ const MovieList = () => {
 		setFormData({
 			...formData,
 			[key]: value,
+			userId: userId,
 		});
+		navigate("/confirmation");
 	};
 
 	console.log(formData);

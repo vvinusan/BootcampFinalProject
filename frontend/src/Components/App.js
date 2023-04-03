@@ -10,6 +10,7 @@ import RecipeDetails from "./RecipeDetails";
 import MovieGenres from "./MovieGenres";
 import MovieList from "./MovieList";
 import MovieDetails from "./MovieDetails";
+import Confirmation from "./Confirmation";
 
 function App() {
 	return (
@@ -28,12 +29,12 @@ function App() {
 					path="/recipedetails/:recipeId"
 					element={<RecipeDetails />}
 				/>
-
 				<Route path="/movielist/:genreId" element={<MovieList />} />
 				<Route
 					path="/moviedetails/:movieId"
 					element={<MovieDetails />}
 				/>
+				<Route path="/confirmation" element={<Confirmation />} />
 			</Routes>
 		</Router>
 	);

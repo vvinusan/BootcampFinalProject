@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 // IMPORT HANDLERS
+const { addFavorite } = require("./handlers");
 
 const PORT = 4000;
 
@@ -24,6 +25,9 @@ express()
 	.use(express.json())
 	.use(express.urlencoded({ extended: false }))
 	.use("/", express.static(__dirname + "/"))
+
+	//Saved recipe, movie combo to favorites
+	.post("/addFavorite", addFavorite)
 
 	//Error message
 	.get("*", (req, res) => {

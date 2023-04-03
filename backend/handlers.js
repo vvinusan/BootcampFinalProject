@@ -17,9 +17,9 @@ const addFavorite = async (request, response) => {
 	console.log(request.body);
 	const client = new MongoClient(MONGO_URI, options);
 
-	const { userId, movieId, recipeId } = request.body;
+	const { userId, movieId, recipeId, recipeTitle, movieTitle } = request.body;
 
-	if (!userId || !movieId || !recipeId) {
+	if (!userId || !movieId || !recipeId || !recipeTitle || !movieTitle) {
 		response
 			.status(400)
 			.json({ status: 400, message: "Missing item information" });
@@ -37,6 +37,8 @@ const addFavorite = async (request, response) => {
 			_id: uuidv4(),
 			movieId: movieId,
 			recipeId: recipeId,
+			movieTitle: movieTitle,
+			recipeTitle: recipeTitle,
 		};
 
 		console.log(newItem);
@@ -86,7 +88,50 @@ const getFavorites = async (request, response) => {
 	}
 };
 
+//DELETED ITEM FROM CART COLLECTION
+
+const deleteFavById = async (request, response) => {
+	const client = new MongoClient(MONGO_URI, options);
+
+	let { favItemId } = request.params;
+
+	// favItemId = Number(favItemId);
+
+	if (!favItemId) {
+		response.status(400).json({ status: 400, message: "Missing item id" });
+		return;
+	}
+
+	try {
+		await client.connect();
+
+		const db = client.db("BootcampSoloProject");
+		const favCollection = db.collection("favorites");
+
+		const result = await favCollection.deleteOne({ _id: favItemId });
+
+		if (result.deletedCount === 0) {
+			response
+				.status(404)
+				.json({ status: 404, message: "Favorite not found" });
+			return;
+		}
+
+		response
+			.status(200)
+			.json({ status: 200, message: "Favorite deleted successfully" });
+	} catch (error) {
+		console.error(error);
+		response
+			.status(400)
+			.json({ status: 400, message: "Error, bad request" });
+	} finally {
+		client.close();
+	}
+};
+
 module.exports = {
 	addFavorite,
 	getFavorites,
+	deleteFavById,
 };

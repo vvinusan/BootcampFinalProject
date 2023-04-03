@@ -45,20 +45,26 @@ const Confirmation = () => {
 			});
 	}, []);
 
+	let modChoiceData = choiceData;
+
+	modChoiceData.recipeTitle = recipe.title;
+	modChoiceData.movieTitle = movie.title;
+
 	const handleSave = () => {
-		//POST
 		fetch("/addFavorite", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(choiceData),
+			body: JSON.stringify(modChoiceData),
 		});
-		// navigate("/favorites");
+
 		setChoiceData({});
+		navigate("/favorites");
 	};
 	console.log(choiceData);
+	console.log(modChoiceData);
 	return (
 		<MainCont>
 			confirmation

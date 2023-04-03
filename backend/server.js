@@ -4,7 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 // IMPORT HANDLERS
-const { addFavorite, getFavorites } = require("./handlers");
+const { addFavorite, getFavorites, deleteFavById } = require("./handlers");
 
 const PORT = 4000;
 
@@ -31,6 +31,9 @@ express()
 
 	//Retrieves entire favorites collection
 	.get("/getFavorites", getFavorites)
+
+	//Deleted specific item from cart
+	.delete("/deleteFavorite/:favItemId", deleteFavById)
 
 	//Error message
 	.get("*", (req, res) => {

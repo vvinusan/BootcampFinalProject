@@ -20,15 +20,15 @@ const MovieList = () => {
 	const [movies, setMovies] = useState([]);
 
 	const handleChoose = (key, value) => {
-		setFormData({
-			...formData,
+		setChoiceData({
+			...choiceData,
 			[key]: value,
 			userId: userId,
 		});
 		navigate("/confirmation");
 	};
 
-	console.log(formData);
+	console.log(choiceData);
 
 	useEffect(() => {
 		fetch(

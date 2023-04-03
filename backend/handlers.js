@@ -11,7 +11,7 @@ const options = {
 //Unique id generation
 const { v4: uuidv4 } = require("uuid");
 
-//ADD ITEM TO CART COLLECTION
+//ADD ITEM TO FAVORITES COLLECTION
 
 const addFavorite = async (request, response) => {
 	console.log(request.body);
@@ -62,6 +62,31 @@ const addFavorite = async (request, response) => {
 	}
 };
 
+//RETRIEVE ENTIRE FAVORITES COLLECTION
+
+const getFavorites = async (request, response) => {
+	const client = new MongoClient(MONGO_URI, options);
+	try {
+		await client.connect();
+
+		const db = client.db("BootcampSoloProject");
+
+		const favObj = db.collection("favorites");
+
+		const favItems = await favObj.find().toArray();
+
+		response.status(200).json({ status: 200, data: favItems });
+	} catch (error) {
+		console.error(error);
+		response
+			.status(400)
+			.json({ status: 400, message: "Error, bad request" });
+	} finally {
+		client.close();
+	}
+};
+
 module.exports = {
 	addFavorite,
+	getFavorites,
 };

@@ -18,14 +18,14 @@ const RecipeList = ({ recipeList }) => {
 	//need to make it a seperate page with its own Route
 
 	const handleChoose = (key, value) => {
-		setFormData({
-			...formData,
+		setChoiceData({
+			...choiceData,
 			[key]: value,
 		});
 		navigate("/genres");
 	};
 
-	console.log(formData);
+	console.log(choiceData);
 	return (
 		<MainContainer>
 			{recipeList.map((recipe) => {

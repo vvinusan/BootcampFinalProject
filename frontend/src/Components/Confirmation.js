@@ -15,6 +15,8 @@ const Confirmation = () => {
 
 	const navigate = useNavigate();
 
+	console.log(choiceData);
+
 	useEffect(() => {
 		fetch(
 			`https://api.themoviedb.org/3/movie/${choiceData.movieId}?api_key=0552cedd4b9803ac1b9a12fe92f2d42b&language=en-US`
@@ -22,7 +24,7 @@ const Confirmation = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				// setMovie(data);
+				setMovie(data);
 			})
 
 			.catch((error) => {
@@ -35,7 +37,7 @@ const Confirmation = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				// setRecipe(data);
+				setRecipe(data);
 			})
 
 			.catch((error) => {
@@ -48,12 +50,12 @@ const Confirmation = () => {
 		// navigate("/favorites");
 		setChoiceData({});
 	};
-
+	console.log(choiceData);
 	return (
 		<MainCont>
 			confirmation
-			{/* <Title>{recipe.title}</Title>
-			<Title>{movie.title}</Title> */}
+			<Title>{recipe.length !== 0 && recipe.title}</Title>
+			<Title>{movie.length !== 0 && movie.title}</Title>
 			{/* Save only resets choiceData for now */}
 			<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
 		</MainCont>

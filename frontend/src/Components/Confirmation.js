@@ -45,26 +45,36 @@ const Confirmation = () => {
 			});
 	}, []);
 
+	let modChoiceData = choiceData;
+
+	modChoiceData.recipeTitle = recipe.title;
+	modChoiceData.movieTitle = movie.title;
+
 	const handleSave = () => {
-		//POST
 		fetch("/addFavorite", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(choiceData),
+			body: JSON.stringify(modChoiceData),
 		});
-		// navigate("/favorites");
+
 		setChoiceData({});
+		navigate("/favorites");
 	};
 	console.log(choiceData);
+	console.log(modChoiceData);
 	return (
 		<MainCont>
 			confirmation
 			<Title>{recipe.length !== 0 && recipe.title}</Title>
+			<RecipeImg src={recipe.image} alt={recipe.title} />
 			<Title>{movie.length !== 0 && movie.title}</Title>
-			{/* Save only resets choiceData for now */}
+			<MovieImg
+				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+				alt={movie.title}
+			/>
 			<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
 		</MainCont>
 	);
@@ -78,5 +88,9 @@ const MainCont = styled.div`
 `;
 
 const Title = styled.div``;
+
+const MovieImg = styled.img``;
+
+const RecipeImg = styled.img``;
 
 const SaveBtn = styled.button``;

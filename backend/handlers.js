@@ -8,14 +8,18 @@ const options = {
 	useUnifiedTopology: true,
 };
 
+//Unique id generation
+const { v4: uuidv4 } = require("uuid");
+
 //ADD ITEM TO CART COLLECTION
 
 const addFavorite = async (request, response) => {
+	console.log(request.body);
 	const client = new MongoClient(MONGO_URI, options);
 
-	const { userId, _id, movieId, recipeId } = request.body;
+	const { userId, movieId, recipeId } = request.body;
 
-	if (!userId || !movieId || !recipeId || !_id) {
+	if (!userId || !movieId || !recipeId) {
 		response
 			.status(400)
 			.json({ status: 400, message: "Missing item information" });
@@ -26,16 +30,17 @@ const addFavorite = async (request, response) => {
 		await client.connect();
 
 		const db = client.db("BootcampSoloProject");
-		const cartCollection = db.collection("favorites");
+		const favCollection = db.collection("favorites");
 
 		const newItem = {
-			userId,
-			_id,
-			movieId,
-			recipeId,
+			userId: userId,
+			_id: uuidv4(),
+			movieId: movieId,
+			recipeId: recipeId,
 		};
 
-		const result = await cartCollection.insertOne(newItem);
+		console.log(newItem);
+		const result = await favCollection.insertOne(newItem);
 
 		if (result.insertedCount === 0) {
 			response

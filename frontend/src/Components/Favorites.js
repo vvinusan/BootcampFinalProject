@@ -19,6 +19,11 @@ const Favorites = () => {
 			});
 	}, []);
 
+	//filter for each logged in users own favorites, then map through that array
+	//need fetch from spoon and tmdb for titles and images, these will be links to respective details pages
+
+	//delete button with its corresponding fetch(DELETE) in the onClick = {handleUnsave}
+	//filter by _id === whatever and remove
 	return (
 		isAuthenticated && (
 			<div>

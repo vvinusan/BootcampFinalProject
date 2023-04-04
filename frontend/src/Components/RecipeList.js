@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import { Context } from "./Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const RecipeList = ({ recipeList }) => {
 	const { choiceData, setChoiceData } = useContext(Context);
+
+	const [preview, setPreview] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -58,6 +60,14 @@ const RecipeList = ({ recipeList }) => {
 							>
 								Select Recipe
 							</Select>
+							<PreviewBtn
+							// value={recipe.id}
+							// onClick={(event) => {
+							// 	handlePreview(event.target.value);
+							// }}
+							>
+								Preview Recipe
+							</PreviewBtn>
 						</RecipeCont>
 					);
 				})
@@ -106,3 +116,5 @@ const IngredCont = styled.div`
 `;
 
 const Select = styled.button``;
+
+const PreviewBtn = styled.button``;

@@ -6,6 +6,7 @@ import RecipeList from "./RecipeList";
 const RecipeSearch = () => {
 	const [ingredients, setIngredients] = useState("");
 	const [recipeList, setRecipeList] = useState([]);
+	const [displayList, setDisplayList] = useState(false);
 
 	const ingredientHandler = (event) => {
 		setIngredients(event.target.value);
@@ -18,6 +19,7 @@ const RecipeSearch = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setRecipeList(data);
+				setDisplayList(true);
 			})
 
 			.catch((error) => {
@@ -38,9 +40,7 @@ const RecipeSearch = () => {
 			</InputCont>
 
 			<ResultsCont>
-				{/* {recipeList.length !== 0 && ( */}
-				<RecipeList recipeList={recipeList} />
-				{/* )} */}
+				{displayList && <RecipeList recipeList={recipeList} />}
 			</ResultsCont>
 		</Form>
 	);

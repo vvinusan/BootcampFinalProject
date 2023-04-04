@@ -5,9 +5,12 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Confirmation = () => {
 	const { choiceData, setChoiceData } = useContext(Context);
+
+	const { isAuthenticated } = useAuth0();
 
 	const [movie, setMovie] = useState([]);
 
@@ -21,7 +24,6 @@ const Confirmation = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setMovie(data);
 			})
 
@@ -34,7 +36,6 @@ const Confirmation = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setRecipe(data);
 			})
 
@@ -62,9 +63,8 @@ const Confirmation = () => {
 
 		setChoiceData({});
 	};
+	console.log(isAuthenticated);
 
-	console.log(choiceData);
-	console.log(modChoiceData);
 	return (
 		<MainCont>
 			confirmation
@@ -75,13 +75,26 @@ const Confirmation = () => {
 				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 				alt={movie.title}
 			/>
-			<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
-			<FavoritesLink to={"/favorites"}>View Favorites</FavoritesLink>
+			{isAuthenticated ? (
+				<UserOptions>
+					<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
+					<FavoritesLink to={"/favorites"}>
+						View Favorites
+					</FavoritesLink>
+				</UserOptions>
+			) : (
+				<NonUserOptions to={"/"}>Return to Homepage</NonUserOptions>
+			)}
 		</MainCont>
 	);
 };
 
 export default Confirmation;
+
+const UserOptions = styled.div`
+	display: flex;
+`;
+const NonUserOptions = styled(Link)``;
 
 const MainCont = styled.div`
 	display: flex;
@@ -91,13 +104,13 @@ const MainCont = styled.div`
 const Title = styled.div``;
 
 const MovieImg = styled.img`
-	height: 200px;
-	width: auto;
+	width: 200px;
+	height: auto;
 `;
 
 const RecipeImg = styled.img`
-	height: 200px;
-	width: auto;
+	width: 200px;
+	height: auto;
 `;
 
 const SaveBtn = styled.button``;

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
-	const { user } = useAuth0();
+	const { user, isAuthenticated } = useAuth0();
 
 	// const navigate = useNavigate();
 
@@ -45,6 +45,7 @@ const Favorites = () => {
 	});
 
 	console.log(currentUserFav);
+	console.log(isAuthenticated);
 	return currentUserFav.length !== 0 ? (
 		<MainContainer>
 			Click on recipes or movies for further details
@@ -126,8 +127,8 @@ const RecipeCont = styled(Link)`
 `;
 
 const Img = styled.img`
-	height: 200px;
-	width: auto;
+	width: 100px;
+	/* width: auto; */
 `;
 
 const NoFavorites = styled.div`

@@ -1,15 +1,15 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-// import Profile from "./Profile";
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
-	const { user, isAuthenticated } = useAuth0();
-	const navigate = useNavigate();
+	const { user } = useAuth0();
+
+	// const navigate = useNavigate();
 
 	const [favorites, setFavorites] = useState([]);
 
@@ -50,7 +50,7 @@ const Favorites = () => {
 			Click on recipes or movies for further details
 			{currentUserFav.map((favItem) => {
 				return (
-					<SubContainer key={favItem.id}>
+					<SubContainer key={favItem._id}>
 						<RecipeCont to={`/recipedetails/${favItem.recipeId}`}>
 							<Title>{favItem.recipeTitle}</Title>
 							<Img
@@ -79,9 +79,6 @@ const Favorites = () => {
 			})}
 		</MainContainer>
 	) : (
-		// <div>{user.sub}</div>
-		// <Profile />;
-
 		<NoFavorites>There are currently no favorites saved</NoFavorites>
 	);
 };
@@ -91,13 +88,15 @@ export default Favorites;
 const MainContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 const SubContainer = styled.div`
 	display: flex;
 	border: solid red 2px;
 	align-items: center;
-	width: 600px;
+	width: 700px;
+	margin-top: 5px;
 `;
 
 const Title = styled.div``;
@@ -108,6 +107,7 @@ const MovieCont = styled(Link)`
 	padding: 10px;
 	align-items: center;
 	color: black;
+	border: solid green 2px;
 	&:visited {
 		color: black;
 	}
@@ -118,6 +118,7 @@ const RecipeCont = styled(Link)`
 	flex-direction: column;
 	padding: 10px;
 	align-items: center;
+	border: solid green 2px;
 	color: black;
 	&:visited {
 		color: black;
@@ -137,4 +138,7 @@ const DeleteBtn = styled.button`
 	height: 30px;
 	background-color: darkred;
 	font-weight: bold;
+	&:hover {
+		background-color: red;
+	}
 `;

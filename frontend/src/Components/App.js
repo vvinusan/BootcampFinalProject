@@ -23,7 +23,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-				<Route path="/favorites" element={<Favorites />} />
+
 				<Route path="/genres" element={<MovieGenres />} />
 				<Route
 					path="/recipedetails/:recipeId"
@@ -35,6 +35,7 @@ function App() {
 					element={<MovieDetails />}
 				/>
 				<Route path="/confirmation" element={<Confirmation />} />
+				<Route path="/favorites" element={<Favorites />} />
 			</Routes>
 		</Router>
 	);

@@ -2,9 +2,9 @@ import React from "react";
 import { useContext } from "react";
 import { Context } from "./Context";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Confirmation = () => {
 	const { choiceData, setChoiceData } = useContext(Context);
@@ -12,8 +12,6 @@ const Confirmation = () => {
 	const [movie, setMovie] = useState([]);
 
 	const [recipe, setRecipe] = useState([]);
-
-	const navigate = useNavigate();
 
 	console.log(choiceData);
 
@@ -63,8 +61,8 @@ const Confirmation = () => {
 		});
 
 		setChoiceData({});
-		navigate("/favorites");
 	};
+
 	console.log(choiceData);
 	console.log(modChoiceData);
 	return (
@@ -78,6 +76,7 @@ const Confirmation = () => {
 				alt={movie.title}
 			/>
 			<SaveBtn onClick={handleSave}>Save to Favorites</SaveBtn>
+			<FavoritesLink to={"/favorites"}>View Favorites</FavoritesLink>
 		</MainCont>
 	);
 };
@@ -91,8 +90,16 @@ const MainCont = styled.div`
 
 const Title = styled.div``;
 
-const MovieImg = styled.img``;
+const MovieImg = styled.img`
+	height: 200px;
+	width: auto;
+`;
 
-const RecipeImg = styled.img``;
+const RecipeImg = styled.img`
+	height: 200px;
+	width: auto;
+`;
 
 const SaveBtn = styled.button``;
+
+const FavoritesLink = styled(Link)``;

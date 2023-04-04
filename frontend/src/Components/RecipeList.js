@@ -1,16 +1,12 @@
 import styled from "styled-components";
 import React from "react";
-// import { Link } from "react-router-dom";
-import { useState } from "react";
 import { Context } from "./Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const RecipeList = ({ recipeList }) => {
-	const { choiceData, setChoiceData, userId, setUserId } =
-		useContext(Context);
+	const { choiceData, setChoiceData } = useContext(Context);
 
-	const [formData, setFormData] = useState({}); //TEST tbr with choiceData
 	const navigate = useNavigate();
 
 	//upon clicking the Select recipe button,
@@ -51,7 +47,7 @@ const RecipeList = ({ recipeList }) => {
 								);
 							})}
 						</IngredCont>
-						<UserId>{userId}</UserId>
+
 						<Select
 							value={recipe.id}
 							onClick={(event) =>
@@ -69,8 +65,6 @@ const RecipeList = ({ recipeList }) => {
 
 export default RecipeList;
 
-const UserId = styled.p``;
-
 const MainContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
@@ -84,19 +78,6 @@ const RecipeCont = styled.div`
 `;
 
 const Title = styled.div``;
-
-{
-	/* <DetailsLink to={`/recipedetails/${recipe.id}`}>
-							Select Recipe
-						</DetailsLink>
-
-const DetailsLink = styled(Link)`
-	color: black;
-	&:visited {
-		color: black;
-	}
-`; */
-}
 
 const Img = styled.img`
 	height: 150px;

@@ -10,7 +10,6 @@ const Header = () => {
 			<Wrapper>
 				<HomeLink>
 					<CompanyName to={"/"}>TBD</CompanyName>
-					<Logo src="../main-logo.png" />
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
@@ -22,10 +21,6 @@ const Header = () => {
 		</HeaderWrap>
 	);
 };
-
-const Logo = styled.img`
-	height: 50px;
-`;
 
 const HomeLink = styled.div`
 	text-decoration: none;

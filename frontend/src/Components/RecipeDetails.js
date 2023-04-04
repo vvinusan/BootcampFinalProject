@@ -25,9 +25,15 @@ const RecipeDetails = () => {
 			});
 	}, [recipeId]);
 
-	return <MainCont>{recipe.title}</MainCont>;
+	return (
+		<MainCont>
+			<Title>{recipe.title}</Title>
+		</MainCont>
+	);
 };
 
 export default RecipeDetails;
 
 const MainCont = styled.div``;
+
+const Title = styled.div``;

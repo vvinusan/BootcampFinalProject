@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./Context";
 
 const MovieGenres = () => {
 	const [genres, setGenres] = useState([]);
-
-	// const ingredientHandler = (event) => {
-	// 	setIngredients(event.target.value);
-	// };
-	// console.log(ingredients);
+	const { choiceData, setChoiceData } = useContext(Context);
 
 	useEffect(() => {
 		fetch(
@@ -18,7 +16,6 @@ const MovieGenres = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setGenres(data.genres);
 			})
 
@@ -27,7 +24,7 @@ const MovieGenres = () => {
 			});
 	}, []);
 
-	console.log(genres);
+	console.log(choiceData);
 	return (
 		<Wrapper>
 			{genres.map((genre) => {

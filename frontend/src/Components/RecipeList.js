@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import { Context } from "./Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,15 +7,18 @@ import { useNavigate } from "react-router-dom";
 const RecipeList = ({ recipeList }) => {
 	const { choiceData, setChoiceData } = useContext(Context);
 
+	const [preview, setPreview] = useState(false);
+
 	const navigate = useNavigate();
 
-	//upon clicking the Select recipe button,
-	// the handler should also include a use nagivate that brings to MovieGenre,
-	//need to make it a seperate page with its own Route
+	console.log(choiceData);
 
 	const handleChoose = (key, value) => {
+		// setChoiceData({
+		// 	...choiceData,
+		// 	[key]: value,
+		// });
 		setChoiceData({
-			...choiceData,
 			[key]: value,
 		});
 		navigate("/genres");
@@ -24,46 +27,63 @@ const RecipeList = ({ recipeList }) => {
 	console.log(choiceData);
 	return (
 		<MainContainer>
-			{recipeList.map((recipe) => {
-				return (
-					<RecipeCont key={recipe.id}>
-						<Title>{recipe.title}</Title>
-						<Img src={recipe.image} alt="image of dish" />
-						<IngredCont>
-							<div>Missing Ingredient</div>
-							{recipe.missedIngredients.map((missIng) => {
-								return (
-									<MissIngred key={missIng.id}>
-										{missIng.original}
-									</MissIngred>
-								);
-							})}
-							<div>Available Ingredient</div>
-							{recipe.usedIngredients.map((avaiIng) => {
-								return (
-									<AvaiIngred key={avaiIng.id}>
-										{avaiIng.original}
-									</AvaiIngred>
-								);
-							})}
-						</IngredCont>
+			{recipeList.length !== 0 ? (
+				recipeList.map((recipe) => {
+					return (
+						<RecipeCont key={recipe.id}>
+							<Title>{recipe.title}</Title>
+							<Img src={recipe.image} alt="image of dish" />
+							<IngredCont>
+								<div>Missing Ingredient</div>
+								{recipe.missedIngredients.map((missIng) => {
+									return (
+										<MissIngred key={missIng.id}>
+											{missIng.original}
+										</MissIngred>
+									);
+								})}
+								<div>Available Ingredient</div>
+								{recipe.usedIngredients.map((avaiIng) => {
+									return (
+										<AvaiIngred key={avaiIng.id}>
+											{avaiIng.original}
+										</AvaiIngred>
+									);
+								})}
+							</IngredCont>
 
-						<Select
-							value={recipe.id}
-							onClick={(event) =>
-								handleChoose("recipeId", event.target.value)
-							}
-						>
-							Select Recipe
-						</Select>
-					</RecipeCont>
-				);
-			})}
+							<Select
+								value={recipe.id}
+								onClick={(event) =>
+									handleChoose("recipeId", event.target.value)
+								}
+							>
+								Select Recipe
+							</Select>
+							<PreviewBtn
+							// value={recipe.id}
+							// onClick={(event) => {
+							// 	handlePreview(event.target.value);
+							// }}
+							>
+								Preview Recipe
+							</PreviewBtn>
+						</RecipeCont>
+					);
+				})
+			) : (
+				<NoResults>
+					There are no recipes for the requested ingredients. Please
+					verify spelling or query again{" "}
+				</NoResults>
+			)}
 		</MainContainer>
 	);
 };
 
 export default RecipeList;
+
+const NoResults = styled.div``;
 
 const MainContainer = styled.div`
 	display: flex;
@@ -96,3 +116,5 @@ const IngredCont = styled.div`
 `;
 
 const Select = styled.button``;
+
+const PreviewBtn = styled.button``;

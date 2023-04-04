@@ -1,14 +1,19 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Profile from "./Profile";
+// import Profile from "./Profile";
 import { useEffect } from "react";
 import { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
 	const { user, isAuthenticated } = useAuth0();
+	const navigate = useNavigate();
 
 	const [favorites, setFavorites] = useState([]);
 
+	//would technically have user inside this dependency array
 	//Retrieve favorites
 	useEffect(() => {
 		fetch("/getFavorites")
@@ -19,33 +24,111 @@ const Favorites = () => {
 			});
 	}, []);
 
-	//filter for each logged in users own favorites, then map through that array
-	//need fetch from spoon and tmdb for titles and images, these will be links to respective details pages
+	const handleUnsave = (event, id) => {
+		fetch(`/deleteFavorite/${id}`, {
+			method: "DELETE",
+		}).then((res) => res.json());
+	};
 
-	//delete button with its corresponding fetch(DELETE) in the onClick = {handleUnsave}
-	// const handleUnsave = (event, id) => {
-	// 	// remove items from cart where id matches, store in newCart and update the cart state
-	// 	const newCart = cart.filter((item) => {
-	// 	  return item._id !== id;
-	// 	});
-	// 	setCart(newCart);
-	// 	fetch(`/deleteCart/${id}`, {
-	// 	  method: "DELETE",
-	// 	}).then((res) => res.json());
-	//   };
-	//filter by _id === whatever and remove
+	//worse case add a navigate to favorites in a weird way to refresh,
+	//if you cant figure out how to get the page to rerender upon deleting a favorite
 	console.log(favorites);
-	return (
-		isAuthenticated && (
-			<div>
-				<div>{user.sub}</div>
-				<Profile />;
-			</div>
-		)
+
+	const currentUserFav = favorites.filter((genFavItem) => {
+		return user && genFavItem.userId === user.sub;
+	});
+
+	console.log(currentUserFav);
+	return currentUserFav.length !== 0 ? (
+		<MainContainer>
+			Click on recipes or movies for further details
+			{currentUserFav.map((favItem) => {
+				return (
+					<SubContainer key={favItem.id}>
+						<RecipeCont to={`/recipedetails/${favItem.recipeId}`}>
+							<Title>{favItem.recipeTitle}</Title>
+							<Img
+								src={favItem.recipeImg}
+								alt={favItem.recipeTitle}
+							/>
+						</RecipeCont>
+						<MovieCont to={`/moviedetails/${favItem.movieId}`}>
+							<Title>{favItem.movieTitle}</Title>
+							<Img
+								src={`https://image.tmdb.org/t/p/w500${favItem.movieImg}`}
+								alt={favItem.movieTitle}
+							/>
+						</MovieCont>
+
+						<DeleteBtn
+							value={favItem._id}
+							onClick={(event) =>
+								handleUnsave("id", event.target.value)
+							}
+						>
+							Delete
+						</DeleteBtn>
+					</SubContainer>
+				);
+			})}
+		</MainContainer>
+	) : (
+		// <div>{user.sub}</div>
+		// <Profile />;
+
+		<NoFavorites>There are currently no favorites saved</NoFavorites>
 	);
 };
 
 export default Favorites;
 
-//why dont i have access to userAuth0 parameters here???
-//NVM I ACTUALLY DO
+const MainContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const SubContainer = styled.div`
+	display: flex;
+	border: solid red 2px;
+	align-items: center;
+	width: 600px;
+`;
+
+const Title = styled.div``;
+
+const MovieCont = styled(Link)`
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+	color: black;
+	&:visited {
+		color: black;
+	}
+`;
+
+const RecipeCont = styled(Link)`
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+	color: black;
+	&:visited {
+		color: black;
+	}
+`;
+
+const Img = styled.img`
+	height: 200px;
+	width: auto;
+`;
+
+const NoFavorites = styled.div`
+	font-size: 25px;
+`;
+
+const DeleteBtn = styled.button`
+	height: 30px;
+	background-color: darkred;
+	font-weight: bold;
+`;

@@ -49,6 +49,8 @@ const Confirmation = () => {
 
 	modChoiceData.recipeTitle = recipe.title;
 	modChoiceData.movieTitle = movie.title;
+	modChoiceData.recipeImg = recipe.image;
+	modChoiceData.movieImg = movie.poster_path;
 
 	const handleSave = () => {
 		fetch("/addFavorite", {

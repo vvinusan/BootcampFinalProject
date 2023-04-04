@@ -17,9 +17,25 @@ const addFavorite = async (request, response) => {
 	console.log(request.body);
 	const client = new MongoClient(MONGO_URI, options);
 
-	const { userId, movieId, recipeId, recipeTitle, movieTitle } = request.body;
+	const {
+		userId,
+		movieId,
+		recipeId,
+		recipeTitle,
+		movieTitle,
+		recipeImg,
+		movieImg,
+	} = request.body;
 
-	if (!userId || !movieId || !recipeId || !recipeTitle || !movieTitle) {
+	if (
+		!userId ||
+		!movieId ||
+		!recipeId ||
+		!recipeTitle ||
+		!movieTitle ||
+		!recipeImg ||
+		!movieImg
+	) {
 		response
 			.status(400)
 			.json({ status: 400, message: "Missing item information" });
@@ -39,6 +55,8 @@ const addFavorite = async (request, response) => {
 			recipeId: recipeId,
 			movieTitle: movieTitle,
 			recipeTitle: recipeTitle,
+			movieImg: movieImg,
+			recipeImg: recipeImg,
 		};
 
 		console.log(newItem);

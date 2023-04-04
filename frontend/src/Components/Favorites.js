@@ -19,7 +19,6 @@ const Favorites = () => {
 		fetch("/getFavorites")
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data.data);
 				setFavorites(data.data);
 			});
 	}, []);
@@ -27,11 +26,18 @@ const Favorites = () => {
 	const handleUnsave = (event, id) => {
 		fetch(`/deleteFavorite/${id}`, {
 			method: "DELETE",
-		}).then((res) => res.json());
+		})
+			.then((res) => res.json())
+			.then(() => {
+				// Call the useEffect again after deleting the favorite
+				fetch("/getFavorites")
+					.then((res) => res.json())
+					.then((data) => {
+						setFavorites(data.data);
+					});
+			});
 	};
 
-	//worse case add a navigate to favorites in a weird way to refresh,
-	//if you cant figure out how to get the page to rerender upon deleting a favorite
 	console.log(favorites);
 
 	const currentUserFav = favorites.filter((genFavItem) => {

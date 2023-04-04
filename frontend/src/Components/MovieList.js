@@ -3,18 +3,16 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect } from "react";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import { Context } from "./Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
 	const { genreId } = useParams();
-	console.log(genreId);
+
 	const { choiceData, setChoiceData, userId, setUserId } =
 		useContext(Context);
 
-	const [formData, setFormData] = useState({}); //TEST tbr with choiceData
 	const navigate = useNavigate();
 
 	const [movies, setMovies] = useState([]);
@@ -112,14 +110,3 @@ const Rating = styled.div``;
 const Overview = styled.div``;
 
 const Select = styled.button``;
-
-{
-	/* <DetailsLink to={`/moviedetails/${movie.id}`}></DetailsLink>
-
-const DetailsLink = styled(Link)`
-	color: black;
-	&:visited {
-		color: black;
-	}
-`; */
-}

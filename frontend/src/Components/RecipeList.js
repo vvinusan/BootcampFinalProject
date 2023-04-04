@@ -9,13 +9,14 @@ const RecipeList = ({ recipeList }) => {
 
 	const navigate = useNavigate();
 
-	//upon clicking the Select recipe button,
-	// the handler should also include a use nagivate that brings to MovieGenre,
-	//need to make it a seperate page with its own Route
+	console.log(choiceData);
 
 	const handleChoose = (key, value) => {
+		// setChoiceData({
+		// 	...choiceData,
+		// 	[key]: value,
+		// });
 		setChoiceData({
-			...choiceData,
 			[key]: value,
 		});
 		navigate("/genres");

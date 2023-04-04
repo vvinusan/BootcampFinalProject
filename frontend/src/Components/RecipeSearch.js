@@ -10,16 +10,13 @@ const RecipeSearch = () => {
 	const ingredientHandler = (event) => {
 		setIngredients(event.target.value);
 	};
-	console.log(ingredients);
 
 	const getRecipes = () => {
-		console.log(ingredients);
 		fetch(
 			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setRecipeList(data);
 			})
 
@@ -27,14 +24,14 @@ const RecipeSearch = () => {
 				console.log(error);
 			});
 	};
-	console.log(recipeList);
+
 	return (
 		<Form>
 			<InputCont>
 				<Input
 					type="text"
 					value={ingredients}
-					placeholder="Please seperate ingredients with a comma and no space"
+					placeholder="Please input ingredients separated with a comma and no space"
 					onChange={ingredientHandler}
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
@@ -44,23 +41,6 @@ const RecipeSearch = () => {
 					<RecipeList recipeList={recipeList} />
 				)}
 			</ResultsCont>
-
-			{/* This is where Recipe details would go
-			const MyButton = () => {
-  const [showInfo, setShowInfo] = useState(false);
-
-  const handleClick = () => {
-    setShowInfo(true);
-  };
-
-  return (
-    <div>
-      <button onClick={handleClick}>Show Info</button>
-      {showInfo && <p>recipe details</p>}
-    </div>
-  );
-};			
-			*/}
 		</Form>
 	);
 };

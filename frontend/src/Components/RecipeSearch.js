@@ -36,10 +36,11 @@ const RecipeSearch = () => {
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
 			</InputCont>
+
 			<ResultsCont>
-				{recipeList.length !== 0 && (
-					<RecipeList recipeList={recipeList} />
-				)}
+				{/* {recipeList.length !== 0 && ( */}
+				<RecipeList recipeList={recipeList} />
+				{/* )} */}
 			</ResultsCont>
 		</Form>
 	);

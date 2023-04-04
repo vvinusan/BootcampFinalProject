@@ -25,46 +25,55 @@ const RecipeList = ({ recipeList }) => {
 	console.log(choiceData);
 	return (
 		<MainContainer>
-			{recipeList.map((recipe) => {
-				return (
-					<RecipeCont key={recipe.id}>
-						<Title>{recipe.title}</Title>
-						<Img src={recipe.image} alt="image of dish" />
-						<IngredCont>
-							<div>Missing Ingredient</div>
-							{recipe.missedIngredients.map((missIng) => {
-								return (
-									<MissIngred key={missIng.id}>
-										{missIng.original}
-									</MissIngred>
-								);
-							})}
-							<div>Available Ingredient</div>
-							{recipe.usedIngredients.map((avaiIng) => {
-								return (
-									<AvaiIngred key={avaiIng.id}>
-										{avaiIng.original}
-									</AvaiIngred>
-								);
-							})}
-						</IngredCont>
+			{recipeList.length !== 0 ? (
+				recipeList.map((recipe) => {
+					return (
+						<RecipeCont key={recipe.id}>
+							<Title>{recipe.title}</Title>
+							<Img src={recipe.image} alt="image of dish" />
+							<IngredCont>
+								<div>Missing Ingredient</div>
+								{recipe.missedIngredients.map((missIng) => {
+									return (
+										<MissIngred key={missIng.id}>
+											{missIng.original}
+										</MissIngred>
+									);
+								})}
+								<div>Available Ingredient</div>
+								{recipe.usedIngredients.map((avaiIng) => {
+									return (
+										<AvaiIngred key={avaiIng.id}>
+											{avaiIng.original}
+										</AvaiIngred>
+									);
+								})}
+							</IngredCont>
 
-						<Select
-							value={recipe.id}
-							onClick={(event) =>
-								handleChoose("recipeId", event.target.value)
-							}
-						>
-							Select Recipe
-						</Select>
-					</RecipeCont>
-				);
-			})}
+							<Select
+								value={recipe.id}
+								onClick={(event) =>
+									handleChoose("recipeId", event.target.value)
+								}
+							>
+								Select Recipe
+							</Select>
+						</RecipeCont>
+					);
+				})
+			) : (
+				<NoResults>
+					There are no recipes for the requested ingredients. Please
+					verify spelling or query again{" "}
+				</NoResults>
+			)}
 		</MainContainer>
 	);
 };
 
 export default RecipeList;
+
+const NoResults = styled.div``;
 
 const MainContainer = styled.div`
 	display: flex;

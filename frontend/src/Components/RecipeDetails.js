@@ -37,38 +37,56 @@ const RecipeDetails = () => {
 					<Title>{recipe.title}</Title>
 					<SubCont>
 						<InstructCont>
-							<Title>
-								{instruct.map((step) => {
-									return (
-										<div key={step.number}>{step.step}</div>
-									);
-								})}
-							</Title>
+							Instructions
+							{instruct.map((step) => {
+								return (
+									<Step key={step.number}>
+										{step.number}. {step.step}
+									</Step>
+								);
+							})}
 						</InstructCont>
 						<Aside>
-							<Title>
-								Preparatio Time: {recipe.readyInMinutes} minutes
-							</Title>
-							<Title>Number of Servings: {recipe.servings}</Title>
-							<Title>Dietary Constraints</Title>
-							<Info>
-								{recipe.dairyFree && (
-									<SubInfo>Dairy Free</SubInfo>
+							<MiscInfo>
+								<Title>
+									Preparatio Time: {recipe.readyInMinutes}{" "}
+									minutes
+								</Title>
+								<Title>
+									Number of Servings: {recipe.servings}
+								</Title>
+								<Title>Dietary Constraints</Title>
+								<Info>
+									{recipe.dairyFree && (
+										<SubInfo>Dairy Free</SubInfo>
+									)}
+								</Info>
+								<Info>
+									{recipe.glutenFree && (
+										<SubInfo>Gluten Free</SubInfo>
+									)}
+								</Info>
+								<Info>
+									{recipe.vegetarian && (
+										<SubInfo>Vegetarian</SubInfo>
+									)}
+								</Info>
+								<Info>
+									{recipe.vegan && <SubInfo>Vegan</SubInfo>}
+								</Info>
+							</MiscInfo>
+							<IngredCont>
+								Ingredients
+								{recipe.extendedIngredients.map(
+									(ingredient) => {
+										return (
+											<Ingred key={ingredient.id}>
+												• {ingredient.original}
+											</Ingred>
+										);
+									}
 								)}
-							</Info>
-							<Info>
-								{recipe.glutenFree && (
-									<SubInfo>Gluten Free</SubInfo>
-								)}
-							</Info>
-							<Info>
-								{recipe.vegetarian && (
-									<SubInfo>Vegetarian</SubInfo>
-								)}
-							</Info>
-							<Info>
-								{recipe.vegan && <SubInfo>Vegan</SubInfo>}
-							</Info>
+							</IngredCont>
 						</Aside>
 					</SubCont>
 				</MainCont>
@@ -83,16 +101,25 @@ export default RecipeDetails;
 const MainCont = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin: 15px;
 `;
 
 const InstructCont = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	width: 70%;
 `;
 
 const SubCont = styled.div`
 	display: flex;
+`;
+
+const Steps = styled.div`
+	margin: 10px;
+`;
+
+const Step = styled.div`
+	margin: 10px;
 `;
 
 const Title = styled.div``;
@@ -102,12 +129,28 @@ const Info = styled.div``;
 const SubInfo = styled.span``;
 
 const Aside = styled.div`
-	width: 30%;
-	padding-left: 15px;
-	margin-left: 15px;
-	float: right;
-	font-style: italic;
+	width: 20%;
+	padding: 15px;
+	margin: 15px;
+	/* float: right; */
+
 	background-color: lightgray;
 	display: flex;
 	flex-direction: column;
 `;
+
+const MiscInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	margin-bottom: 25px;
+	font-style: italic;
+`;
+
+const IngredCont = styled.div`
+	display: flex;
+	flex-direction: column;
+	background-color: pink;
+`;
+
+const Ingred = styled.div``;

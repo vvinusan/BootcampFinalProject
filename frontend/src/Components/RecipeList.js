@@ -4,6 +4,7 @@ import { Context } from "./Context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipePreview from "./RecipePreview";
+import { useEffect } from "react";
 
 const RecipeList = ({ recipeList }) => {
 	const { choiceData, setChoiceData } = useContext(Context);
@@ -32,20 +33,27 @@ const RecipeList = ({ recipeList }) => {
 		let [prevContent] = recipeList.filter((preCont) => {
 			return preCont.id === Number(value);
 		});
-		console.log(prevContent);
 
 		setPrevIngred(prevContent);
 	};
 
+	useEffect(() => {
+		window.scrollTo({
+			top: document.documentElement.scrollHeight,
+			behavior: "smooth",
+		});
+	}, [prevIngred]);
+
 	const handleClosePreview = () => {
 		setPreview(false);
 		setPreviewId({});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	console.log(recipeList);
 	console.log(preview);
 	console.log(preivewId);
-	// console.log(prevContent);
+
 	console.log(prevIngred);
 	return (
 		<MainContainer>

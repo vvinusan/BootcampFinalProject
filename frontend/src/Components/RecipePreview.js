@@ -4,15 +4,15 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const RecipeDetails = () => {
-	const { recipeId } = useParams();
+const RecipePreview = ({ recipeId }) => {
+	// const { recipeId } = useParams();
 
-	console.log(recipeId);
+	// console.log(recipeId);
 	const [recipe, setRecipe] = useState([]);
 
 	useEffect(() => {
 		fetch(
-			`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=a9f069e813f44ed38e79a7ddd1dc115b`
+			`https://api.spoonacular.com/recipes/${recipeId.recipeId}/information?apiKey=a9f069e813f44ed38e79a7ddd1dc115b`
 		)
 			.then((res) => res.json())
 			.then((data) => {
@@ -55,7 +55,7 @@ const RecipeDetails = () => {
 	);
 };
 
-export default RecipeDetails;
+export default RecipePreview;
 
 const MainCont = styled.div`
 	display: flex;

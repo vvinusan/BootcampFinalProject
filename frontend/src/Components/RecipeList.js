@@ -25,6 +25,7 @@ const RecipeList = ({ recipeList }) => {
 	};
 
 	console.log(choiceData);
+	console.log(recipeList);
 	return (
 		<MainContainer>
 			{recipeList.length !== 0 ? (

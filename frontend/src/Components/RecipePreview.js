@@ -16,7 +16,6 @@ const RecipePreview = ({ recipeId }) => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setRecipe(data);
 			})
 
@@ -24,8 +23,6 @@ const RecipePreview = ({ recipeId }) => {
 				console.log(error);
 			});
 	}, [recipeId]);
-
-	console.log(recipe);
 
 	return (
 		<>

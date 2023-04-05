@@ -10,6 +10,7 @@ const RecipeList = ({ recipeList }) => {
 
 	const [preview, setPreview] = useState(false);
 	const [preivewId, setPreviewId] = useState({});
+	const [prevIngred, setPrevIngred] = useState([]);
 
 	const navigate = useNavigate();
 
@@ -27,6 +28,13 @@ const RecipeList = ({ recipeList }) => {
 			[key]: value,
 		});
 		setPreview(true);
+
+		let [prevContent] = recipeList.filter((preCont) => {
+			return preCont.id === Number(value);
+		});
+		console.log(prevContent);
+
+		setPrevIngred(prevContent);
 	};
 
 	const handleClosePreview = () => {
@@ -34,10 +42,11 @@ const RecipeList = ({ recipeList }) => {
 		setPreviewId({});
 	};
 
-	console.log(choiceData);
 	console.log(recipeList);
 	console.log(preview);
 	console.log(preivewId);
+	// console.log(prevContent);
+	console.log(prevIngred);
 	return (
 		<MainContainer>
 			<SubContainer>
@@ -101,6 +110,26 @@ const RecipeList = ({ recipeList }) => {
 			<PreviewCont>
 				{preview && (
 					<div>
+						{prevIngred && (
+							<IngredCont>
+								<div>Missing Ingredient</div>
+								{prevIngred.missedIngredients.map((missIng) => {
+									return (
+										<MissIngred key={missIng.id}>
+											{missIng.original}
+										</MissIngred>
+									);
+								})}
+								<div>Available Ingredient</div>
+								{prevIngred.usedIngredients.map((avaiIng) => {
+									return (
+										<AvaiIngred key={avaiIng.id}>
+											{avaiIng.original}
+										</AvaiIngred>
+									);
+								})}
+							</IngredCont>
+						)}
 						<RecipePreview recipeId={preivewId} />
 						<CloseBtn onClick={handleClosePreview}>
 							Close Preview
@@ -161,3 +190,38 @@ const PreviewCont = styled.div`
 const PreviewBtn = styled.button``;
 
 const CloseBtn = styled.button``;
+
+{
+	/* {prevContent.map((recipe) => {
+							return (
+								<RecipeCont key={recipe[preivewId.recipeId]}>
+									<IngredCont>
+										<div>Missing Ingredient</div>
+										{recipe.missedIngredients.map(
+											(missIng) => {
+												return (
+													<MissIngred
+														key={missIng.id}
+													>
+														{missIng.original}
+													</MissIngred>
+												);
+											}
+										)}
+										<div>Available Ingredient</div>
+										{recipe.usedIngredients.map(
+											(avaiIng) => {
+												return (
+													<AvaiIngred
+														key={avaiIng.id}
+													>
+														{avaiIng.original}
+													</AvaiIngred>
+												);
+											}
+										)}
+									</IngredCont>
+								</RecipeCont>
+							);
+						})} */
+}

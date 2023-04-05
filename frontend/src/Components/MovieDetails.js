@@ -25,9 +25,20 @@ const MovieDetails = () => {
 			});
 	}, [movieId]);
 
-	return <MainCont>movie details {movie.title}</MainCont>;
+	return (
+		<MainCont>
+			<Img
+				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+				alt={movie.title}
+			/>
+		</MainCont>
+	);
 };
 
 export default MovieDetails;
 
 const MainCont = styled.div``;
+
+const Img = styled.img`
+	height: 400px;
+`;

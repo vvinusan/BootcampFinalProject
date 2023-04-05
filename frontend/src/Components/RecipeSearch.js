@@ -14,7 +14,7 @@ const RecipeSearch = () => {
 
 	const getRecipes = () => {
 		fetch(
-			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=5`
+			`https://api.spoonacular.com/recipes/findByIngredients?apiKey=a9f069e813f44ed38e79a7ddd1dc115b&ingredients=${ingredients}&number=12`
 		)
 			.then((res) => res.json())
 			.then((data) => {

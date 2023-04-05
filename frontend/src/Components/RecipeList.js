@@ -56,7 +56,7 @@ const RecipeList = ({ recipeList }) => {
 							<RecipeCont key={recipe.id}>
 								<Title>{recipe.title}</Title>
 								<Img src={recipe.image} alt="image of dish" />
-								<IngredCont>
+								{/* <IngredCont>
 									<div>Missing Ingredient</div>
 									{recipe.missedIngredients.map((missIng) => {
 										return (
@@ -73,7 +73,7 @@ const RecipeList = ({ recipeList }) => {
 											</AvaiIngred>
 										);
 									})}
-								</IngredCont>
+								</IngredCont> */}
 
 								<Select
 									value={recipe.id}
@@ -151,8 +151,9 @@ const MainContainer = styled.div`
 `;
 
 const SubContainer = styled.div`
-	display: flex;
 	justify-content: space-evenly;
+	display: flex;
+	flex-wrap: wrap;
 `;
 const RecipeCont = styled.div`
 	display: flex;
@@ -160,14 +161,17 @@ const RecipeCont = styled.div`
 	padding: 5px;
 	background-color: lightgray;
 	margin: 5px;
+	width: 300px;
+	height: 300px;
+`;
+
+const Img = styled.img`
+	height: 200px;
+	width: 100%;
+	object-fit: cover;
 `;
 
 const Title = styled.div``;
-
-const Img = styled.img`
-	height: 150px;
-	width: auto;
-`;
 
 const MissIngred = styled.div`
 	color: red;
@@ -190,38 +194,3 @@ const PreviewCont = styled.div`
 const PreviewBtn = styled.button``;
 
 const CloseBtn = styled.button``;
-
-{
-	/* {prevContent.map((recipe) => {
-							return (
-								<RecipeCont key={recipe[preivewId.recipeId]}>
-									<IngredCont>
-										<div>Missing Ingredient</div>
-										{recipe.missedIngredients.map(
-											(missIng) => {
-												return (
-													<MissIngred
-														key={missIng.id}
-													>
-														{missIng.original}
-													</MissIngred>
-												);
-											}
-										)}
-										<div>Available Ingredient</div>
-										{recipe.usedIngredients.map(
-											(avaiIng) => {
-												return (
-													<AvaiIngred
-														key={avaiIng.id}
-													>
-														{avaiIng.original}
-													</AvaiIngred>
-												);
-											}
-										)}
-									</IngredCont>
-								</RecipeCont>
-							);
-						})} */
-}

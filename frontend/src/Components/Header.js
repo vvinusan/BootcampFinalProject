@@ -9,7 +9,7 @@ const Header = () => {
 		<HeaderWrap>
 			<Wrapper>
 				<HomeLink>
-					<CompanyName to={"/"}>TBD</CompanyName>
+					<CompanyName to={"/"}>Meals, Movies & I</CompanyName>
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
@@ -17,6 +17,7 @@ const Header = () => {
 				{isAuthenticated && (
 					<NavItem to={"/favorites"}>Favorites</NavItem>
 				)}
+				{isAuthenticated && <NavItem to={"/profile"}>Profile</NavItem>}
 			</NavWrap>
 		</HeaderWrap>
 	);
@@ -31,14 +32,15 @@ const HomeLink = styled.div`
 `;
 
 const NavItem = styled(Link)`
-	padding: 20px 80px;
+	padding: 20px;
+	/* width: 200px; */
 	text-decoration: none;
 	font-family: "nimbus-sans", sans-serif;
 	font-weight: 700;
 	color: black;
 	font-size: 25px;
-	border-right: "3px solid black";
-	margin: 0px;
+	border-radius: 5px;
+	margin: 0px 20px;
 	box-sizing: border-box;
 
 	/* .leftBorder {
@@ -57,12 +59,12 @@ const NavWrap = styled.div`
 	width: 100%;
 	align-items: center;
 	justify-content: center;
-	border-bottom: 5px solid black;
+	/* border-bottom: 5px solid black; */
 	margin: 0px;
 `;
 
 const Wrapper = styled.div`
-	border-bottom: 5px solid black;
+	/* border-bottom: 5px solid black; */
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -77,11 +79,11 @@ const CompanyName = styled(Link)`
 	&:visited {
 		color: black;
 	}
-	:hover {
+	/* :hover {
 		background-color: darkred;
 		color: #fff;
 		transition: all 0.3s ease-in-out;
-	}
+	} */
 `;
 
 const HeaderWrap = styled.div`

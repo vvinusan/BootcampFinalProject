@@ -66,7 +66,7 @@ const DetailsCont = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.5);
 	height: 400px;
 	margin: 50px 0;
 	padding: 10px 25px;

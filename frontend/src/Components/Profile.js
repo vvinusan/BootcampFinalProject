@@ -22,6 +22,8 @@ const Profile = () => {
 
 export default Profile;
 
+//MIGHT JUST ADD HI, PLACETOBE23 NEXT TO LOGOUT BUTTON
+
 // CAN JUST RENAME THIS TO FAVORITE DETAILS, AND THEN USING THE userid, add and remove dates via Mongodb ENDPOINTS
 
 //PROBLEM WITH BELOW IS THAT AUTH0 user, isLoading and isAuthenticated, ISNT AVAILALBE TO FAVORITES FOR SOME REASON

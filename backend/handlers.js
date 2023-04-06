@@ -14,7 +14,6 @@ const { v4: uuidv4 } = require("uuid");
 //ADD ITEM TO FAVORITES COLLECTION
 
 const addFavorite = async (request, response) => {
-	console.log(request.body);
 	const client = new MongoClient(MONGO_URI, options);
 
 	const {
@@ -59,7 +58,6 @@ const addFavorite = async (request, response) => {
 			recipeImg: recipeImg,
 		};
 
-		console.log(newItem);
 		const result = await favCollection.insertOne(newItem);
 
 		if (result.insertedCount === 0) {
@@ -112,8 +110,6 @@ const deleteFavById = async (request, response) => {
 	const client = new MongoClient(MONGO_URI, options);
 
 	let { favItemId } = request.params;
-
-	// favItemId = Number(favItemId);
 
 	if (!favItemId) {
 		response.status(400).json({ status: 400, message: "Missing item id" });

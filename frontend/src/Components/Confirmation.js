@@ -16,8 +16,6 @@ const Confirmation = () => {
 
 	const [recipe, setRecipe] = useState([]);
 
-	console.log(choiceData);
-
 	useEffect(() => {
 		fetch(
 			`https://api.themoviedb.org/3/movie/${choiceData.movieId}?api_key=0552cedd4b9803ac1b9a12fe92f2d42b&language=en-US`
@@ -63,7 +61,6 @@ const Confirmation = () => {
 
 		setChoiceData({});
 	};
-	console.log(isAuthenticated);
 
 	return (
 		<MainCont>

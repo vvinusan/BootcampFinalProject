@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const RecipePreview = ({ recipeId }) => {
-	// const { recipeId } = useParams();
-
-	// console.log(recipeId);
 	const [recipe, setRecipe] = useState([]);
 
 	useEffect(() => {

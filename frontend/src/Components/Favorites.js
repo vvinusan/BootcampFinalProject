@@ -4,16 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
 
 const Favorites = () => {
 	const { user, isAuthenticated } = useAuth0();
 
-	// const navigate = useNavigate();
-
 	const [favorites, setFavorites] = useState([]);
 
-	//would technically have user inside this dependency array
 	//Retrieve favorites
 	useEffect(() => {
 		fetch("/getFavorites")
@@ -38,14 +34,10 @@ const Favorites = () => {
 			});
 	};
 
-	console.log(favorites);
-
 	const currentUserFav = favorites.filter((genFavItem) => {
 		return user && genFavItem.userId === user.sub;
 	});
 
-	console.log(currentUserFav);
-	console.log(isAuthenticated);
 	return currentUserFav.length !== 0 ? (
 		<MainContainer>
 			Click on recipes or movies for further details

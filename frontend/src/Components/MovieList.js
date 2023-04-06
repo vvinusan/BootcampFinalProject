@@ -16,6 +16,7 @@ const MovieList = () => {
 	const navigate = useNavigate();
 
 	const [movies, setMovies] = useState([]);
+	const [randomMovies, setRandomMovies] = useState([]);
 
 	const handleChoose = (key, value) => {
 		setChoiceData({
@@ -35,6 +36,7 @@ const MovieList = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				setMovies(data.results);
+				setRandomMovies(chooseFiveRandom(data.results));
 			})
 
 			.catch((error) => {
@@ -42,7 +44,11 @@ const MovieList = () => {
 			});
 	}, [genreId]);
 
-	const chooseFiveRandom = () => {
+	const handleRefresh = () => {
+		setRandomMovies(chooseFiveRandom(movies));
+	};
+
+	const chooseFiveRandom = (movies) => {
 		let result = [];
 		let moviesCopy = [...movies];
 		for (let i = 0; i < 5; i++) {
@@ -53,38 +59,54 @@ const MovieList = () => {
 		return result;
 	};
 
-	const newFive = movies.length > 0 ? chooseFiveRandom() : [];
+	const newFive = movies.length > 0 ? chooseFiveRandom(movies) : [];
 
 	console.log(newFive);
 	return (
-		<MainContainer>
-			{newFive.length !== 0 &&
-				newFive.map((movie) => {
-					return (
-						<SubContainer key={movie.id}>
-							<Title>{movie.title}</Title>
-							<Img
-								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-								alt={movie.title}
-							/>
-							<Overview>{movie.overview}</Overview>
-							<Rating>{movie.vote_average}/10</Rating>
-							<Select
-								value={movie.id}
-								onClick={(event) =>
-									handleChoose("movieId", event.target.value)
-								}
-							>
-								Select Recipe
-							</Select>
-						</SubContainer>
-					);
-				})}
-		</MainContainer>
+		<Wrapper>
+			<MainContainer>
+				{newFive.length !== 0 &&
+					newFive.map((movie) => {
+						return (
+							<SubContainer key={movie.id}>
+								<Title>{movie.title}</Title>
+								<Img
+									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+									alt={movie.title}
+								/>
+								<Overview>{movie.overview}</Overview>
+								<Rating>{movie.vote_average}/10</Rating>
+								<Select
+									value={movie.id}
+									onClick={(event) =>
+										handleChoose(
+											"movieId",
+											event.target.value
+										)
+									}
+								>
+									Select Recipe
+								</Select>
+							</SubContainer>
+						);
+					})}
+			</MainContainer>
+			<RefreshBtn onClick={handleRefresh}>Refresh Choices</RefreshBtn>
+		</Wrapper>
 	);
 };
 
 export default MovieList;
+
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const RefreshBtn = styled.button`
+	margin-top: 5px;
+	width: 300px;
+`;
 
 const MainContainer = styled.div`
 	display: flex;

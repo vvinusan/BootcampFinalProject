@@ -10,13 +10,14 @@ import { useNavigate } from "react-router-dom";
 const MovieList = () => {
 	const { genreId } = useParams();
 
-	const { choiceData, setChoiceData, userId, setUserId } =
+	const { choiceData, setChoiceData, userId, setUserId, genres } =
 		useContext(Context);
 
 	const navigate = useNavigate();
 
 	const [movies, setMovies] = useState([]);
 	const [randomMovies, setRandomMovies] = useState([]);
+	const [genreList, setGenreList] = useState([]);
 
 	const handleChoose = (key, value) => {
 		setChoiceData({
@@ -37,12 +38,15 @@ const MovieList = () => {
 			.then((data) => {
 				setMovies(data.results);
 				setRandomMovies(chooseFiveRandom(data.results));
+				setGenreList(genres);
 			})
 
 			.catch((error) => {
 				console.log(error);
 			});
 	}, [genreId]);
+
+	console.log(genreList);
 
 	const handleRefresh = () => {
 		setRandomMovies(chooseFiveRandom(movies));
@@ -59,11 +63,19 @@ const MovieList = () => {
 		return result;
 	};
 
+	console.log(genreId);
+
+	const genreObj = genres.filter((genre) => {
+		return genre.id === Number(genreId);
+	});
+
 	const newFive = movies.length > 0 ? chooseFiveRandom(movies) : [];
 
+	console.log(genreObj);
 	console.log(newFive);
 	return (
 		<Wrapper>
+			{genreObj.length > 0 && <GenreTitle>{genreObj[0].name}</GenreTitle>}
 			<MainContainer>
 				{newFive.length !== 0 &&
 					newFive.map((movie) => {
@@ -76,6 +88,7 @@ const MovieList = () => {
 								/>
 								<Overview>{movie.overview}</Overview>
 								<Rating>{movie.vote_average}/10</Rating>
+
 								<Select
 									value={movie.id}
 									onClick={(event) =>
@@ -101,6 +114,7 @@ export default MovieList;
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 `;
 
 const RefreshBtn = styled.button`
@@ -124,6 +138,11 @@ const SubContainer = styled.div`
 const Img = styled.img`
 	width: 200px;
 	height: auto;
+`;
+
+const GenreTitle = styled.div`
+	font-weight: 900;
+	font-size: 25px;
 `;
 const Title = styled.div``;
 

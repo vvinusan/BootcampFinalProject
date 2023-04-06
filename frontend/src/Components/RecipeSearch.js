@@ -53,7 +53,7 @@ const Form = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding-top: 20px;
-	background-color: #f7d1dd;
+	background-color: darkgrey;
 `;
 
 const Input = styled.input`

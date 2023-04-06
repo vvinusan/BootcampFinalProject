@@ -25,20 +25,75 @@ const MovieDetails = () => {
 			});
 	}, [movieId]);
 
+	let voteAvg = movie.vote_average;
+	let roundedVoteAvg = Math.round(voteAvg * 100) / 100;
+
 	return (
 		<MainCont>
-			<Img
-				src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-				alt={movie.title}
+			<BgImg
+				src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
 			/>
+			<SubCont>
+				<Img
+					src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+					alt={movie.title}
+				/>
+				<DetailsCont>
+					<Title>{movie.title}</Title>
+					<Tagline>-{movie.tagline}</Tagline>
+					<Info>{movie.release_date}</Info>
+					<Info>{movie.runtime} minutes </Info>
+					<Info>{roundedVoteAvg}/10</Info>
+					<Info>{movie.overview}</Info>
+				</DetailsCont>
+			</SubCont>
 		</MainCont>
 	);
 };
 
 export default MovieDetails;
 
-const MainCont = styled.div``;
+const MainCont = styled.div`
+	background-image: url(movie.);
+`;
+
+const SubCont = styled.div`
+	display: flex;
+	/* justify-content: center; */
+`;
+const DetailsCont = styled.div`
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-color: rgba(0, 0, 0, 0.4);
+	height: 400px;
+	margin: 50px 0;
+	padding: 10px 25px;
+`;
+
+const Title = styled.div`
+	font-size: 40px;
+	align-self: center;
+	font-weight: 900;
+`;
+
+const Info = styled.div``;
+
+const Tagline = styled.div`
+	font-style: italic;
+`;
 
 const Img = styled.img`
-	height: 400px;
+	height: 450px;
+	margin: 25px 25px;
+`;
+
+const BgImg = styled.img`
+	/* height: 100vh; */
+	width: 98vw;
+	position: absolute;
+	z-index: -1;
+	opacity: 0.5;
+	filter: brightness(75%);
 `;

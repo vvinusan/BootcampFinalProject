@@ -29,39 +29,46 @@ const Header = () => {
 
 const HomeLink = styled.div`
 	text-decoration: none;
+	text-align: center;
 	color: black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: lightgray;
+	/* background-color: #f1d7bd; */
 	margin: 10px 0 0 10px;
-	width: 250px;
+	width: 300px;
 	padding: 5px;
+	text-shadow: 2px 2px 0px white;
 `;
 
 const Meals = styled.span`
 	font-style: italic;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-weight: 400;
+	font-weight: 500;
+	/* color: #253d5b; */
+	color: teal;
 `;
 
 const Movies = styled.span`
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: darkred;
 `;
 
 const AndI = styled.span``;
 
 const NavItem = styled(Link)`
 	padding: 15px 40px;
-
+	text-shadow: 0px 0px 5px black;
 	text-decoration: none;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
-	color: black;
+	/* color: #284455; */
+	color: white;
 	font-size: 25px;
 	border-radius: 5px;
-	margin: 0px 20px;
+	margin: 5px 20px;
 	box-sizing: border-box;
+	background-color: #99ecea;
 
 	:hover {
 		background-color: darkred;
@@ -89,7 +96,7 @@ const Wrapper = styled.div`
 const CompanyName = styled(Link)`
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
-	font-size: 30px;
+	font-size: 35px;
 	text-decoration: none;
 	&:visited {
 		color: black;
@@ -104,6 +111,8 @@ const HeaderWrap = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 0;
+	padding: 0;
+	background-image: linear-gradient(to bottom, #f1d7bd, white);
 `;
 
 export default Header;

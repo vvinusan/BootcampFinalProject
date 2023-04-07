@@ -41,7 +41,7 @@ const RecipeSearch = () => {
 				<Input
 					type="text"
 					value={ingredients}
-					placeholder="Please input ingredients separated with a comma and no space"
+					placeholder="Please input ingredients separated by a comma"
 					onChange={ingredientHandler}
 				></Input>
 				<SearchBtn onClick={getRecipes}>Search</SearchBtn>
@@ -107,10 +107,19 @@ const Wrapper = styled.div`
 const Input = styled.input`
 	width: 500px;
 	height: 20px;
-	background-color: rgb(153, 236, 234, 1);
+	padding: 2px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 18px;
 	height: 30px;
 	border-radius: 5px;
-	margin: 0 5px;
+	margin: 0 15px;
+	background-image: linear-gradient(to right, rgb(153, 236, 234, 1), white);
+	border: white solid 2px;
+	&:focus {
+		border: teal solid 3px;
+		outline: teal;
+		transition: all 1s ease-in-out;
+	}
 `;
 
 const InputCont = styled.div`
@@ -137,6 +146,7 @@ const SearchBtn = styled.button`
 		color: white;
 		transition: all 0.3s ease-in-out;
 		background-color: red;
+		scale: 1.1;
 	}
 `;
 
@@ -146,7 +156,7 @@ const InstructBtn = styled.button`
 
 	padding: 5px;
 	font-size: 20px;
-	width: 80px;
+	width: 120px;
 
 	color: white;
 	background-color: darkred;
@@ -158,6 +168,7 @@ const InstructBtn = styled.button`
 		color: white;
 		transition: all 0.3s ease-in-out;
 		background-color: red;
+		scale: 1.1;
 	}
 `;
 

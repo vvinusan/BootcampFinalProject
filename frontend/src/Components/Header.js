@@ -76,7 +76,7 @@ const NavItem = styled(Link)`
 		background-color: #99ecea;
 		text-shadow: 0px 0px 3px black, 0px 0px 30px black;
 		color: #fff;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 `;
 
@@ -115,7 +115,7 @@ const HeaderWrap = styled.div`
 	align-items: center;
 	margin: 0;
 	padding: 0;
-	background-image: linear-gradient(to bottom, #f1d7bd, white);
+	background-image: linear-gradient(to bottom, #edcba9, white);
 `;
 
 export default Header;

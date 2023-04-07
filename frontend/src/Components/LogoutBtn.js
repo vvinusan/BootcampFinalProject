@@ -40,5 +40,6 @@ const Btn = styled.button`
 		color: white;
 		transition: all 0.3s ease-in-out;
 		background-color: red;
+		scale: 1.1;
 	}
 `;

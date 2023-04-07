@@ -23,24 +23,37 @@ const RecipeList = ({ recipeList }) => {
 	};
 
 	const handlePreview = (key, value) => {
-		setPreviewId({
-			[key]: value,
-		});
-		setPreview(true);
+		if (preivewId[key] !== value) {
+			setPreviewId({
+				[key]: value,
+			});
+			setPreview(true);
 
-		let [prevContent] = recipeList.filter((preCont) => {
-			return preCont.id === Number(value);
-		});
+			// setPreviewId({
+			// 	[key]: value,
+			// });
+			// setPreview(true);
 
-		setPrevIngred(prevContent);
+			let [prevContent] = recipeList.filter((preCont) => {
+				return preCont.id === Number(value);
+			});
+
+			setPrevIngred(prevContent);
+
+			window.scrollTo({
+				top: document.documentElement.scrollHeight,
+				behavior: "smooth",
+			});
+		}
 	};
 
+	// useEffect(() => {
+
+	// }, [prevIngred]);
+
 	useEffect(() => {
-		window.scrollTo({
-			top: document.documentElement.scrollHeight,
-			behavior: "smooth",
-		});
-	}, [prevIngred]);
+		window.scrollTo(0, 0);
+	}, []);
 
 	const handleClosePreview = () => {
 		setPreview(false);
@@ -92,7 +105,7 @@ const RecipeList = ({ recipeList }) => {
 			</SubContainer>
 			<PreviewCont>
 				{preview && (
-					<div>
+					<SubPrevCont>
 						{prevIngred && (
 							<IngredCont>
 								<div>Missing Ingredient</div>
@@ -117,7 +130,7 @@ const RecipeList = ({ recipeList }) => {
 						<CloseBtn onClick={handleClosePreview}>
 							Close Preview
 						</CloseBtn>
-					</div>
+					</SubPrevCont>
 				)}
 			</PreviewCont>
 		</MainContainer>
@@ -125,6 +138,11 @@ const RecipeList = ({ recipeList }) => {
 };
 
 export default RecipeList;
+
+const SubPrevCont = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 
 const NoResults = styled.div``;
 

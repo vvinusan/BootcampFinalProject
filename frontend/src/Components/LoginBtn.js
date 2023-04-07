@@ -15,12 +15,23 @@ const LoginBtn = () => {
 export default LoginBtn;
 
 const Btn = styled.button`
+	outline: none;
+	border: none;
 	position: absolute;
 	padding: 5px;
 	font-size: 25px;
-	width: 100px;
-	top: 20px;
-	right: 10px;
+	width: 120px;
+	top: 15px;
+	color: white;
+	background-color: darkred;
+	border-radius: 15px;
+	right: 15px;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
+	&:hover {
+		color: white;
+		transition: all 0.3s ease-in-out;
+		background-color: red;
+		scale: 1.1;
+	}
 `;

@@ -46,7 +46,8 @@ const Meals = styled.span`
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: 500;
 	/* color: #253d5b; */
-	color: teal;
+	/* color: teal; */
+	color: #39dbd7;
 `;
 
 const Movies = styled.span`
@@ -58,7 +59,7 @@ const AndI = styled.span``;
 
 const NavItem = styled(Link)`
 	padding: 15px 40px;
-	text-shadow: 0px 0px 5px black;
+	/* text-shadow: 0px 0px 5px black; */
 	text-decoration: none;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
@@ -68,10 +69,12 @@ const NavItem = styled(Link)`
 	border-radius: 5px;
 	margin: 5px 20px;
 	box-sizing: border-box;
-	background-color: #99ecea;
+	/* background-color: #99ecea; */
+	background-color: darkred;
 
 	:hover {
-		background-color: darkred;
+		background-color: #99ecea;
+		text-shadow: 0px 0px 3px black, 0px 0px 30px black;
 		color: #fff;
 		transition: all 0.5s ease-in-out;
 	}
@@ -112,7 +115,7 @@ const HeaderWrap = styled.div`
 	align-items: center;
 	margin: 0;
 	padding: 0;
-	background-image: linear-gradient(to bottom, #f1d7bd, white);
+	background-image: linear-gradient(to bottom, #edcba9, white);
 `;
 
 export default Header;

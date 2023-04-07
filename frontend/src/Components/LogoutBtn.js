@@ -30,7 +30,7 @@ const Btn = styled.button`
 	font-size: 25px;
 	width: 120px;
 	top: 15px;
-	color: black;
+	color: white;
 	background-color: darkred;
 	border-radius: 15px;
 	right: 15px;
@@ -40,5 +40,6 @@ const Btn = styled.button`
 		color: white;
 		transition: all 0.3s ease-in-out;
 		background-color: red;
+		scale: 1.1;
 	}
 `;

@@ -10,8 +10,7 @@ import { useNavigate } from "react-router-dom";
 const MovieList = () => {
 	const { genreId } = useParams();
 
-	const { choiceData, setChoiceData, userId, setUserId, genres } =
-		useContext(Context);
+	const { choiceData, setChoiceData, userId, genres } = useContext(Context);
 
 	const navigate = useNavigate();
 
@@ -27,8 +26,6 @@ const MovieList = () => {
 		});
 		navigate("/confirmation");
 	};
-
-	console.log(choiceData);
 
 	useEffect(() => {
 		fetch(
@@ -46,8 +43,6 @@ const MovieList = () => {
 			});
 	}, [genreId]);
 
-	console.log(genreList);
-
 	const handleRefresh = () => {
 		setRandomMovies(chooseFiveRandom(movies));
 	};
@@ -63,16 +58,12 @@ const MovieList = () => {
 		return result;
 	};
 
-	console.log(genreId);
-
 	const genreObj = genres.filter((genre) => {
 		return genre.id === Number(genreId);
 	});
 
 	const newFive = movies.length > 0 ? chooseFiveRandom(movies) : [];
 
-	console.log(genreObj);
-	console.log(newFive);
 	return (
 		<Wrapper>
 			{genreObj.length > 0 && <GenreTitle>{genreObj[0].name}</GenreTitle>}

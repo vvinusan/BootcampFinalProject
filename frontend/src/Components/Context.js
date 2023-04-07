@@ -5,14 +5,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const Context = createContext();
 
 const Provider = ({ children }) => {
-	const { user, isAuthenticated } = useAuth0();
+	const { user } = useAuth0();
 
 	const [userId, setUserId] = useState(null);
 	const [genres, setGenres] = useState([]);
 	const [saved, setSaved] = useState([]);
 	const [choiceData, setChoiceData] = useState({});
-	const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
-	//might not need the isLoggedIn, since auth0, checks for it already
 
 	useEffect(() => {
 		if (user && user.sub) {
@@ -43,8 +41,7 @@ const Provider = ({ children }) => {
 				setUserId,
 				saved,
 				setSaved,
-				isLoggedIn,
-				setIsLoggedIn,
+
 				choiceData,
 				setChoiceData,
 				genres,
@@ -57,12 +54,3 @@ const Provider = ({ children }) => {
 };
 
 export default Provider;
-//Retrieve entire cart
-//   useEffect(() => {
-//     fetch("/cart")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setCart(data.data);
-//       });
-//   }, []);
-//test push

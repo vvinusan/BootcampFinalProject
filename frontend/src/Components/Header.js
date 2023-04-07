@@ -9,7 +9,11 @@ const Header = () => {
 		<HeaderWrap>
 			<Wrapper>
 				<HomeLink>
-					<CompanyName to={"/"}>Meals, Movies & I</CompanyName>
+					<CompanyName to={"/"}>
+						<Meals>meals,</Meals>
+						<Movies> MOVIES</Movies>
+						<AndI> & I</AndI>
+					</CompanyName>
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
@@ -25,32 +29,51 @@ const Header = () => {
 
 const HomeLink = styled.div`
 	text-decoration: none;
+	text-align: center;
 	color: black;
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
+	/* background-color: #f1d7bd; */
+	margin: 10px 0 0 10px;
+	width: 300px;
+	padding: 5px;
+	text-shadow: 2px 2px 0px white;
 `;
 
+const Meals = styled.span`
+	font-style: italic;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	/* color: #253d5b; */
+	color: teal;
+`;
+
+const Movies = styled.span`
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: darkred;
+`;
+
+const AndI = styled.span``;
+
 const NavItem = styled(Link)`
-	padding: 20px;
-	/* width: 200px; */
+	padding: 15px 40px;
+	text-shadow: 0px 0px 5px black;
 	text-decoration: none;
-	font-family: "nimbus-sans", sans-serif;
-	font-weight: 700;
-	color: black;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
+	/* color: #284455; */
+	color: white;
 	font-size: 25px;
 	border-radius: 5px;
-	margin: 0px 20px;
+	margin: 5px 20px;
 	box-sizing: border-box;
-
-	/* .leftBorder {
-		border-left: 3px solid black;
-	} */
+	background-color: #99ecea;
 
 	:hover {
 		background-color: darkred;
 		color: #fff;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 `;
 
@@ -59,12 +82,11 @@ const NavWrap = styled.div`
 	width: 100%;
 	align-items: center;
 	justify-content: center;
-	/* border-bottom: 5px solid black; */
+
 	margin: 0px;
 `;
 
 const Wrapper = styled.div`
-	/* border-bottom: 5px solid black; */
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -72,18 +94,13 @@ const Wrapper = styled.div`
 `;
 
 const CompanyName = styled(Link)`
-	font-family: sans-serif;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
-	font-size: 30px;
+	font-size: 35px;
 	text-decoration: none;
 	&:visited {
 		color: black;
 	}
-	/* :hover {
-		background-color: darkred;
-		color: #fff;
-		transition: all 0.3s ease-in-out;
-	} */
 `;
 
 const HeaderWrap = styled.div`
@@ -94,6 +111,8 @@ const HeaderWrap = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 0;
+	padding: 0;
+	background-image: linear-gradient(to bottom, #f1d7bd, white);
 `;
 
 export default Header;

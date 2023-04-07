@@ -14,7 +14,7 @@ const LogoutBtn = () => {
 					})
 				}
 			>
-				Logout
+				LOG OUT
 			</Btn>
 		)
 	);
@@ -23,10 +23,22 @@ const LogoutBtn = () => {
 export default LogoutBtn;
 
 const Btn = styled.button`
+	outline: none;
+	border: none;
 	position: absolute;
 	padding: 5px;
-	font-size: 20px;
-	width: 100px;
+	font-size: 25px;
+	width: 120px;
 	top: 15px;
-	right: 10px;
+	color: black;
+	background-color: darkred;
+	border-radius: 15px;
+	right: 15px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
+	&:hover {
+		color: white;
+		transition: all 0.3s ease-in-out;
+		background-color: red;
+	}
 `;

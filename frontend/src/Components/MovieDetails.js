@@ -16,7 +16,6 @@ const MovieDetails = () => {
 		)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setMovie(data);
 			})
 

@@ -9,7 +9,11 @@ const Header = () => {
 		<HeaderWrap>
 			<Wrapper>
 				<HomeLink>
-					<CompanyName to={"/"}>Meals, Movies & I</CompanyName>
+					<CompanyName to={"/"}>
+						<Meals>meals,</Meals>
+						<Movies> MOVIES</Movies>
+						<AndI> & I</AndI>
+					</CompanyName>
 				</HomeLink>
 			</Wrapper>
 			<NavWrap>
@@ -27,30 +31,42 @@ const HomeLink = styled.div`
 	text-decoration: none;
 	color: black;
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
+	background-color: lightgray;
+	margin: 10px 0 0 10px;
+	width: 250px;
+	padding: 5px;
 `;
 
+const Meals = styled.span`
+	font-style: italic;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 400;
+`;
+
+const Movies = styled.span`
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+`;
+
+const AndI = styled.span``;
+
 const NavItem = styled(Link)`
-	padding: 20px;
-	/* width: 200px; */
+	padding: 15px 40px;
+
 	text-decoration: none;
-	font-family: "nimbus-sans", sans-serif;
-	font-weight: 700;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
 	color: black;
 	font-size: 25px;
 	border-radius: 5px;
 	margin: 0px 20px;
 	box-sizing: border-box;
 
-	/* .leftBorder {
-		border-left: 3px solid black;
-	} */
-
 	:hover {
 		background-color: darkred;
 		color: #fff;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.5s ease-in-out;
 	}
 `;
 
@@ -59,12 +75,11 @@ const NavWrap = styled.div`
 	width: 100%;
 	align-items: center;
 	justify-content: center;
-	/* border-bottom: 5px solid black; */
+
 	margin: 0px;
 `;
 
 const Wrapper = styled.div`
-	/* border-bottom: 5px solid black; */
 	width: 100%;
 	align-items: center;
 	justify-content: center;
@@ -72,18 +87,13 @@ const Wrapper = styled.div`
 `;
 
 const CompanyName = styled(Link)`
-	font-family: sans-serif;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
 	font-size: 30px;
 	text-decoration: none;
 	&:visited {
 		color: black;
 	}
-	/* :hover {
-		background-color: darkred;
-		color: #fff;
-		transition: all 0.3s ease-in-out;
-	} */
 `;
 
 const HeaderWrap = styled.div`

@@ -7,7 +7,7 @@ const LoginBtn = () => {
 
 	return (
 		!isAuthenticated && (
-			<Btn onClick={() => loginWithRedirect()}>Log In</Btn>
+			<Btn onClick={() => loginWithRedirect()}>LOG IN</Btn>
 		)
 	);
 };
@@ -17,8 +17,10 @@ export default LoginBtn;
 const Btn = styled.button`
 	position: absolute;
 	padding: 5px;
-	font-size: 20px;
+	font-size: 25px;
 	width: 100px;
-	top: 15px;
+	top: 20px;
 	right: 10px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
 `;

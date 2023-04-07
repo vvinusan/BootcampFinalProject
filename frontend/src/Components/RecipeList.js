@@ -92,7 +92,7 @@ const RecipeList = ({ recipeList }) => {
 			</SubContainer>
 			<PreviewCont>
 				{preview && (
-					<div>
+					<SubPrevCont>
 						{prevIngred && (
 							<IngredCont>
 								<div>Missing Ingredient</div>
@@ -117,7 +117,7 @@ const RecipeList = ({ recipeList }) => {
 						<CloseBtn onClick={handleClosePreview}>
 							Close Preview
 						</CloseBtn>
-					</div>
+					</SubPrevCont>
 				)}
 			</PreviewCont>
 		</MainContainer>
@@ -125,6 +125,11 @@ const RecipeList = ({ recipeList }) => {
 };
 
 export default RecipeList;
+
+const SubPrevCont = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
 
 const NoResults = styled.div``;
 

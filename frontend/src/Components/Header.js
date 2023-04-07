@@ -46,7 +46,8 @@ const Meals = styled.span`
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: 500;
 	/* color: #253d5b; */
-	color: teal;
+	/* color: teal; */
+	color: #39dbd7;
 `;
 
 const Movies = styled.span`

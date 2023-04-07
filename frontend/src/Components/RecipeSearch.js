@@ -108,16 +108,58 @@ const Input = styled.input`
 	width: 500px;
 	height: 20px;
 	background-color: rgb(153, 236, 234, 1);
+	height: 30px;
+	border-radius: 5px;
+	margin: 0 5px;
 `;
 
 const InputCont = styled.div`
 	display: flex;
 	padding-bottom: 20px;
+	align-items: center;
 `;
 
-const SearchBtn = styled.button``;
+const SearchBtn = styled.button`
+	outline: none;
+	border: none;
 
-const InstructBtn = styled.button``;
+	padding: 5px;
+	font-size: 20px;
+	width: 80px;
+
+	color: white;
+	background-color: darkred;
+	border-radius: 5px;
+
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
+	&:hover {
+		color: white;
+		transition: all 0.3s ease-in-out;
+		background-color: red;
+	}
+`;
+
+const InstructBtn = styled.button`
+	outline: none;
+	border: none;
+
+	padding: 5px;
+	font-size: 20px;
+	width: 80px;
+
+	color: white;
+	background-color: darkred;
+	border-radius: 5px;
+
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-weight: 900;
+	&:hover {
+		color: white;
+		transition: all 0.3s ease-in-out;
+		background-color: red;
+	}
+`;
 
 const ResultsCont = styled.div``;
 

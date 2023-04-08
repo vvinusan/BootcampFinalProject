@@ -128,7 +128,7 @@ const Input = styled.input`
 	&:focus {
 		border: teal solid 3px;
 		outline: teal;
-		transition: all 1s ease-in-out;
+		transition: all 0.3s ease-in-out;
 	}
 `;
 

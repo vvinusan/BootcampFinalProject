@@ -45,13 +45,15 @@ const NameCont = styled.div`
 const Name = styled(Link)`
 	text-decoration: none;
 	padding-left: 5px;
-	color: #99ecea;
-	text-shadow: 0px 0px 3px teal;
+	/* color: #99ecea; */
+	color: teal;
+	/* color: #39dbd7; */
 	&:visited {
-		color: #99ecea;
+		/* color: #99ecea; */
+		color: teal;
 	}
 	&:hover {
-		color: teal;
+		text-shadow: 0px 0px 3px teal;
 	}
 `;
 

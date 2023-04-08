@@ -52,7 +52,7 @@ const RecipeList = ({ recipeList }) => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
-	// console.log(prevIngred.missedIngredients);
+	console.log(prevIngred);
 
 	return (
 		<MainContainer>

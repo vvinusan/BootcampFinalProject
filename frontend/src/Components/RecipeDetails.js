@@ -27,6 +27,8 @@ const RecipeDetails = () => {
 			});
 	}, [recipeId]);
 
+	console.log(recipe);
+
 	return (
 		<>
 			{recipe.length !== 0 ? (

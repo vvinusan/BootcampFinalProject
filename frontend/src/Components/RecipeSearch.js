@@ -80,9 +80,9 @@ const RecipeSearch = () => {
 						</div>
 						<div>The possibilities are endless!</div>
 						<Tag>
-							Start searching, start <Meals> cooking</Meals> and
-							start
-							<Movies> WATCHING </Movies> !
+							Start searching, start <SubMeals> cooking</SubMeals>{" "}
+							and start
+							<SubMovies> WATCHING </SubMovies> !
 						</Tag>
 					</Cont>
 				</InstructCont>
@@ -99,6 +99,7 @@ export default RecipeSearch;
 
 const Tag = styled.div`
 	display: flex;
+	align-items: center;
 `;
 
 const Wrapper = styled.div`
@@ -203,12 +204,29 @@ const Meals = styled.span`
 	font-weight: 500;
 	/* color: #253d5b; */
 	/* color: teal; */
+	/* padding: 0 5px; */
+	color: #39dbd7;
+`;
+
+const SubMeals = styled.span`
+	font-style: italic;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 500;
+	/* color: #253d5b; */
+	/* color: teal; */
+	padding: 0 5px;
 	color: #39dbd7;
 `;
 
 const Movies = styled.span`
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 	color: darkred;
+`;
+
+const SubMovies = styled.span`
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	color: darkred;
+	padding: 0 5px;
 `;
 
 const AndI = styled.span``;

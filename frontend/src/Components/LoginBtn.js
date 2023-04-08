@@ -19,11 +19,13 @@ const Btn = styled.button`
 	border: none;
 	position: absolute;
 	padding: 5px;
+	margin: 10px;
 	font-size: 25px;
 	width: 120px;
 	top: 15px;
 	color: white;
 	background-color: darkred;
+	text-shadow: 0px 0px 2px darkred, 0px 0px 30px darkred;
 	border-radius: 15px;
 	right: 15px;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

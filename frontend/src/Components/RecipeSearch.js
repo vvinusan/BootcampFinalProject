@@ -148,7 +148,7 @@ const SearchBtn = styled.button`
 	color: white;
 	background-color: darkred;
 	border-radius: 5px;
-
+	text-shadow: 0px 0px 2px darkred, 0px 0px 30px darkred;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
 	&:hover {
@@ -165,8 +165,8 @@ const InstructBtn = styled.button`
 
 	padding: 5px;
 	font-size: 20px;
-	width: 120px;
-
+	width: 130px;
+	text-shadow: 0px 0px 2px darkred, 0px 0px 30px darkred;
 	color: white;
 	background-color: darkred;
 	border-radius: 5px;
@@ -194,6 +194,7 @@ const CompanyName = styled.div`
 	font-weight: 900;
 	font-size: 25px;
 	text-decoration: none;
+	text-shadow: 2px 2px 0px white;
 `;
 
 const Meals = styled.span`

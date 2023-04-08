@@ -74,7 +74,8 @@ const NavItem = styled(Link)`
 
 	:hover {
 		background-color: #99ecea;
-		text-shadow: 0px 0px 3px black, 0px 0px 30px black;
+
+		text-shadow: 0px 0px 3px teal, 0px 0px 30px teal;
 		color: #fff;
 		transition: all 0.3s ease-in-out;
 		scale: 1.1;

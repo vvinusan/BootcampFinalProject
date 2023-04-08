@@ -60,6 +60,7 @@ const MoviesLink = styled(Link)`
 	margin: 25px 50px;
 	background-color: darkred;
 	text-decoration: none;
+	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 	color: #f1d7bd;
 	&:visited {
 		color: #f1d7bd;

@@ -209,6 +209,7 @@ const Title = styled.div`
 	font-size: 20px;
 	text-align: center;
 	padding: 5px 0;
+	font-weight: 900;
 `;
 
 const Select = styled.button`

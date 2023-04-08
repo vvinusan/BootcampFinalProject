@@ -106,43 +106,7 @@ const RecipeList = ({ recipeList }) => {
 					)}
 					{preview && (
 						<SubPrevCont>
-							{/* {prevIngred && (
-								<IngredCont>
-									<Missing>
-										<MissTitle>
-											Missing Ingredient
-										</MissTitle>
-										{prevIngred.missedIngredients.map(
-											(missIng) => {
-												return (
-													<MissIngred
-														key={missIng.id}
-													>
-														{missIng.original}
-													</MissIngred>
-												);
-											}
-										)}
-									</Missing>
-									<Available>
-										<AvaiTitle>
-											Available Ingredient
-										</AvaiTitle>
-										{prevIngred.usedIngredients.map(
-											(avaiIng) => {
-												return (
-													<AvaiIngred
-														key={avaiIng.id}
-													>
-														{avaiIng.original}
-													</AvaiIngred>
-												);
-											}
-										)}
-									</Available>
-								</IngredCont>
-							)} */}
-							{prevIngred && ( // Add another conditional rendering to check for missed ingredients
+							{prevIngred && (
 								<IngredCont>
 									{prevIngred.missedIngredients.length !==
 										0 && (
@@ -198,33 +162,13 @@ const RecipeList = ({ recipeList }) => {
 
 export default RecipeList;
 
-// const MissTitle = styled.div`
-// 	font-weight: 900;
-// 	font-size: 15px;
-// 	text-align: center;
-// `;
-
-// const AvaiTitle = styled.div`
-// 	font-weight: 900;
-// 	font-size: 15px;
-// 	text-align: center;
-// `;
-
-// const MissIngred = styled.div`
-// 	color: darkred;
-// 	font-size: 15px;
-// `;
-
-// const AvaiIngred = styled.div`
-// 	font-size: 15px;
-// `;
-
 const SubPrevCont = styled.div`
 	display: flex;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
 	flex-direction: row-reverse;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 const NoResults = styled.div``;
@@ -265,14 +209,8 @@ const Title = styled.div`
 	font-size: 20px;
 	text-align: center;
 	padding: 5px 0;
+	font-weight: 900;
 `;
-
-// const IngredCont = styled.div`
-// 	display: flex;
-// 	flex-direction: row-reverse;
-// 	margin-right: 20px;
-// 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-// `;
 
 const Select = styled.button`
 	outline: none;
@@ -362,26 +300,8 @@ const IngredCont = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	margin-top: 20px;
+	width: 800px;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-`;
-
-const Missing = styled.div`
-	display: flex;
-	flex-direction: column;
-	border-radius: 10px;
-	background-color: darkred;
-	color: white;
-	padding: 5px;
-`;
-
-const Available = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin: 0 20px;
-	border-radius: 10px;
-	background-color: #284455;
-	color: white;
-	padding: 5px;
 `;
 
 const MissTitle = styled.div`
@@ -396,22 +316,6 @@ const AvaiTitle = styled.div`
 	text-align: center;
 `;
 
-const MissIngred = styled.div`
-	color: darkred;
-	font-size: 15px;
-`;
-
-const AvaiIngred = styled.div`
-	font-size: 15px;
-`;
-
-const IngredTitle = styled.div`
-	font-weight: 900;
-	font-size: 15px;
-	text-align: center;
-	margin: 0 20px;
-`;
-
 const MissIngredSubCont = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -419,6 +323,7 @@ const MissIngredSubCont = styled.div`
 	background-color: darkred;
 	color: white;
 	padding: 5px;
+	width: 50%;
 `;
 
 const AvaiIngredSubCont = styled.div`
@@ -429,6 +334,7 @@ const AvaiIngredSubCont = styled.div`
 	background-color: #284455;
 	color: white;
 	padding: 5px;
+	width: 50%;
 `;
 
 const IngredList = styled.div`
@@ -444,10 +350,3 @@ const IngredEmpty = styled.div`
 	font-size: 15px;
 	color: #aaa;
 `;
-
-// const IngredCont = styled.div`
-// 	display: flex;
-// 	flex-direction: row;
-// 	justify-content: space-between;
-// 	margin-top: 20px;
-// `;

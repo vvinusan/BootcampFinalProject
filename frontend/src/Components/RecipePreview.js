@@ -30,7 +30,7 @@ const RecipePreview = ({ recipeId }) => {
 							Preparatio Time: {recipe.readyInMinutes} minutes
 						</Title>
 						<Title>Number of Servings: {recipe.servings}</Title>
-						<Title>Dietary Constraints</Title>
+						<Title>Dietary Info</Title>
 						<Info>
 							{recipe.dairyFree && <SubInfo> Dairy Free</SubInfo>}
 						</Info>
@@ -72,6 +72,7 @@ const MainTitle = styled.div`
 	color: white;
 	background-color: #628196;
 	padding: 5px;
+	margin-bottom: 10px;
 	border-radius: 3px;
 	font-size: 20px;
 	font-weight: 900;

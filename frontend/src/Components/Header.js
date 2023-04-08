@@ -58,7 +58,7 @@ const Movies = styled.span`
 const AndI = styled.span``;
 
 const NavItem = styled(Link)`
-	padding: 15px 40px;
+	padding: 10px 35px;
 	/* text-shadow: 0px 0px 5px black; */
 	text-decoration: none;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -76,7 +76,8 @@ const NavItem = styled(Link)`
 		background-color: #99ecea;
 		text-shadow: 0px 0px 3px black, 0px 0px 30px black;
 		color: #fff;
-		transition: all 0.5s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		scale: 1.1;
 	}
 `;
 

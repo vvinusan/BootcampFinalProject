@@ -115,6 +115,7 @@ const Input = styled.input`
 	margin: 0 15px;
 	background-image: linear-gradient(to right, rgb(153, 236, 234, 1), white);
 	border: white solid 2px;
+	outline: white;
 	&:focus {
 		border: teal solid 3px;
 		outline: teal;

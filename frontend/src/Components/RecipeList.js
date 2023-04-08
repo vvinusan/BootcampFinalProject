@@ -16,52 +16,6 @@ const RecipeList = ({ recipeList }) => {
 
 	const navigate = useNavigate();
 
-	// const handleChoose = (key, value) => {
-	// 	setChoiceData({
-	// 		[key]: value,
-	// 	});
-	// 	navigate("/genres");
-	// };
-
-	// const handlePreview = (key, value) => {
-	// 	if (preivewId[key] !== value) {
-	// 		setPreviewId({
-	// 			[key]: value,
-	// 		});
-	// 		setPreview(true);
-
-	// 		// setPreviewId({
-	// 		// 	[key]: value,
-	// 		// });
-	// 		// setPreview(true);
-
-	// 		let [prevContent] = recipeList.filter((preCont) => {
-	// 			return preCont.id === Number(value);
-	// 		});
-
-	// 		setPrevIngred(prevContent);
-
-	// 		window.scrollTo({
-	// 			top: document.documentElement.scrollHeight,
-	// 			behavior: "smooth",
-	// 		});
-	// 	}
-	// };
-
-	// // useEffect(() => {
-
-	// // }, [prevIngred]);
-
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0);
-	// }, []);
-
-	// const handleClosePreview = () => {
-	// 	setPreview(false);
-	// 	setPreviewId({});
-	// 	window.scrollTo({ top: 0, behavior: "smooth" });
-	// };
-
 	const handleChoose = (key, value) => {
 		setChoiceData({
 			[key]: value,
@@ -84,11 +38,11 @@ const RecipeList = ({ recipeList }) => {
 		}
 	};
 
-	const subPrevContRef = useRef(null);
+	const previewContRef = useRef(null);
 
 	useEffect(() => {
 		if (preview) {
-			subPrevContRef.current.scrollIntoView({ behavior: "smooth" });
+			previewContRef.current.scrollIntoView({ behavior: "smooth" });
 		}
 	}, [preview]);
 
@@ -98,7 +52,7 @@ const RecipeList = ({ recipeList }) => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
-	console.log(prevIngred);
+	// console.log(prevIngred.missedIngredients);
 
 	return (
 		<MainContainer>
@@ -144,34 +98,93 @@ const RecipeList = ({ recipeList }) => {
 				)}
 			</SubContainer>
 			{recipeList.length !== 0 && (
-				<PreviewCont>
-					<CloseBtn onClick={handleClosePreview}>
-						Close Preview
-					</CloseBtn>
+				<PreviewCont ref={previewContRef}>
 					{preview && (
-						<SubPrevCont ref={subPrevContRef}>
-							{prevIngred && (
+						<CloseBtn onClick={handleClosePreview}>
+							Close Preview
+						</CloseBtn>
+					)}
+					{preview && (
+						<SubPrevCont>
+							{/* {prevIngred && (
 								<IngredCont>
-									<div>Missing Ingredient</div>
-									{prevIngred.missedIngredients.map(
-										(missIng) => {
-											return (
-												<MissIngred key={missIng.id}>
-													{missIng.original}
-												</MissIngred>
-											);
-										}
+									<Missing>
+										<MissTitle>
+											Missing Ingredient
+										</MissTitle>
+										{prevIngred.missedIngredients.map(
+											(missIng) => {
+												return (
+													<MissIngred
+														key={missIng.id}
+													>
+														{missIng.original}
+													</MissIngred>
+												);
+											}
+										)}
+									</Missing>
+									<Available>
+										<AvaiTitle>
+											Available Ingredient
+										</AvaiTitle>
+										{prevIngred.usedIngredients.map(
+											(avaiIng) => {
+												return (
+													<AvaiIngred
+														key={avaiIng.id}
+													>
+														{avaiIng.original}
+													</AvaiIngred>
+												);
+											}
+										)}
+									</Available>
+								</IngredCont>
+							)} */}
+							{prevIngred && ( // Add another conditional rendering to check for missed ingredients
+								<IngredCont>
+									{prevIngred.missedIngredients.length !==
+										0 && (
+										<MissIngredSubCont>
+											<MissTitle>
+												Missing Ingredients
+											</MissTitle>
+											<IngredList>
+												{prevIngred.missedIngredients.map(
+													(missIng) => (
+														<IngredItem
+															key={missIng.id}
+														>
+															{missIng.original}
+														</IngredItem>
+													)
+												)}
+											</IngredList>
+										</MissIngredSubCont>
 									)}
-									<div>Available Ingredient</div>
-									{prevIngred.usedIngredients.map(
-										(avaiIng) => {
-											return (
-												<AvaiIngred key={avaiIng.id}>
-													{avaiIng.original}
-												</AvaiIngred>
-											);
-										}
-									)}
+									<AvaiIngredSubCont>
+										<AvaiTitle>
+											Available Ingredients
+										</AvaiTitle>
+										<IngredList>
+											{prevIngred.usedIngredients.map(
+												(avaiIng) => (
+													<IngredItem
+														key={avaiIng.id}
+													>
+														{avaiIng.original}
+													</IngredItem>
+												)
+											)}
+											{prevIngred.missedIngredients
+												.length === 0 && (
+												<IngredEmpty>
+													No missing ingredients
+												</IngredEmpty>
+											)}
+										</IngredList>
+									</AvaiIngredSubCont>
 								</IngredCont>
 							)}
 							<RecipePreview recipeId={preivewId} />
@@ -185,11 +198,33 @@ const RecipeList = ({ recipeList }) => {
 
 export default RecipeList;
 
+// const MissTitle = styled.div`
+// 	font-weight: 900;
+// 	font-size: 15px;
+// 	text-align: center;
+// `;
+
+// const AvaiTitle = styled.div`
+// 	font-weight: 900;
+// 	font-size: 15px;
+// 	text-align: center;
+// `;
+
+// const MissIngred = styled.div`
+// 	color: darkred;
+// 	font-size: 15px;
+// `;
+
+// const AvaiIngred = styled.div`
+// 	font-size: 15px;
+// `;
+
 const SubPrevCont = styled.div`
 	display: flex;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-	/* padding: 20px; */
+
 	flex-direction: row-reverse;
+	justify-content: space-between;
 `;
 
 const NoResults = styled.div``;
@@ -214,6 +249,7 @@ const RecipeCont = styled.div`
 	margin: 5px;
 	width: 300px;
 	height: 300px;
+	border-radius: 15px;
 `;
 
 const Img = styled.img`
@@ -231,17 +267,12 @@ const Title = styled.div`
 	padding: 5px 0;
 `;
 
-const MissIngred = styled.div`
-	color: red;
-`;
-
-const AvaiIngred = styled.div``;
-
-const IngredCont = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-right: 20px;
-`;
+// const IngredCont = styled.div`
+// 	display: flex;
+// 	flex-direction: row-reverse;
+// 	margin-right: 20px;
+// 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+// `;
 
 const Select = styled.button`
 	outline: none;
@@ -269,10 +300,10 @@ const Select = styled.button`
 const PreviewCont = styled.div`
 	display: flex;
 	flex-direction: row-reverse;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	align-items: center;
 	padding: 10px;
-	/* border: white solid 3px; */
+	height: 300px;
 `;
 
 const PreviewBtn = styled.button`
@@ -283,7 +314,7 @@ const PreviewBtn = styled.button`
 	font-size: 12px;
 	width: 100px;
 
-	color: white;
+	color: #284455;
 	background-color: #99ecea;
 	border-radius: 5px;
 
@@ -306,7 +337,7 @@ const CloseBtn = styled.button`
 	font-size: 15px;
 	width: 100px;
 
-	color: white;
+	color: #284455;
 	background-color: #99ecea;
 	border-radius: 5px;
 
@@ -323,5 +354,100 @@ const CloseBtn = styled.button`
 
 const BtnCont = styled.div`
 	display: flex;
-	/* justify-content: space-between; */
 `;
+
+//////////////////////////////////
+const IngredCont = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 20px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+const Missing = styled.div`
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	background-color: darkred;
+	color: white;
+	padding: 5px;
+`;
+
+const Available = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin: 0 20px;
+	border-radius: 10px;
+	background-color: #284455;
+	color: white;
+	padding: 5px;
+`;
+
+const MissTitle = styled.div`
+	font-weight: 900;
+	font-size: 15px;
+	text-align: center;
+`;
+
+const AvaiTitle = styled.div`
+	font-weight: 900;
+	font-size: 15px;
+	text-align: center;
+`;
+
+const MissIngred = styled.div`
+	color: darkred;
+	font-size: 15px;
+`;
+
+const AvaiIngred = styled.div`
+	font-size: 15px;
+`;
+
+const IngredTitle = styled.div`
+	font-weight: 900;
+	font-size: 15px;
+	text-align: center;
+	margin: 0 20px;
+`;
+
+const MissIngredSubCont = styled.div`
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	background-color: darkred;
+	color: white;
+	padding: 5px;
+`;
+
+const AvaiIngredSubCont = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin: 0 20px;
+	border-radius: 10px;
+	background-color: #284455;
+	color: white;
+	padding: 5px;
+`;
+
+const IngredList = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const IngredItem = styled.div`
+	font-size: 15px;
+`;
+
+const IngredEmpty = styled.div`
+	font-size: 15px;
+	color: #aaa;
+`;
+
+// const IngredCont = styled.div`
+// 	display: flex;
+// 	flex-direction: row;
+// 	justify-content: space-between;
+// 	margin-top: 20px;
+// `;

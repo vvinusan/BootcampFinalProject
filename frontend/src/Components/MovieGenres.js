@@ -12,8 +12,11 @@ const MovieGenres = () => {
 		<Wrapper>
 			{genres.map((genre) => {
 				return (
-					<GenreCont key={genre.id}>
-						<MoviesLink to={`/movielist/${genre.id}`}>
+					<GenreCont>
+						<MoviesLink
+							key={genre.id}
+							to={`/movielist/${genre.id}`}
+						>
 							{genre.name}
 						</MoviesLink>
 					</GenreCont>
@@ -30,29 +33,41 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	background-color: #f7d1dd;
+	background-image: linear-gradient(to top, #f1d7bd, white);
+	/* margin: 30px 2px; */
+	/* padding: ; */
+	height: 80vh;
 `;
 
 const GenreCont = styled.div`
-	font-family: "nimbus-sans", sans-serif;
-	padding: 5px 10px;
-	font-size: 20px;
-	font-weight: 900;
-	border: 2px solid red;
-	border-radius: 5px;
-	height: 35px;
-	width: auto;
-	margin: 5px;
-	background-color: darkred;
+	display: flex;
+	/* flex-wrap: wrap; */
+	justify-content: center;
+	align-items: center;
 `;
 
 const MoviesLink = styled(Link)`
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	padding: 5px;
+	font-size: 20px;
+
+	/* font-weight: 900; */
+	/* border: 2px solid red; */
+	border-radius: 5px;
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	margin: 25px 50px;
+	background-color: darkred;
 	text-decoration: none;
-	color: black;
+	color: #f1d7bd;
 	&:visited {
-		color: black;
+		color: #f1d7bd;
 	}
 	&:hover {
 		color: white;
+		transition: all 0.3s ease-in-out;
+		scale: 1.3;
+		background-color: red;
 	}
 `;

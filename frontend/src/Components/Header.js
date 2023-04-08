@@ -44,10 +44,10 @@ const HomeLink = styled.div`
 const Meals = styled.span`
 	font-style: italic;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-weight: 500;
+	font-weight: 700;
 	/* color: #253d5b; */
-	/* color: teal; */
-	color: #39dbd7;
+	color: teal;
+	/* color: #39dbd7; */
 `;
 
 const Movies = styled.span`

@@ -74,12 +74,16 @@ const RecipeSearch = () => {
 							choose a genre for a movie suggestion.
 						</div>
 						<div>
-							You can view saved recipe-moive combos directly from
+							You can view saved recipe-movie combos directly from
 							your favorites page where you will have access to
-							further detailes.
+							further details.
 						</div>
-						<div>The posibilities are endless!</div>
-						<div>Get searching, get cooking and get watching!</div>
+						<div>The possibilities are endless!</div>
+						<Tag>
+							Start searching, start <Meals> cooking</Meals> and
+							start
+							<Movies> WATCHING </Movies> !
+						</Tag>
 					</Cont>
 				</InstructCont>
 			)}
@@ -92,6 +96,10 @@ const RecipeSearch = () => {
 };
 
 export default RecipeSearch;
+
+const Tag = styled.div`
+	display: flex;
+`;
 
 const Wrapper = styled.div`
 	display: flex;
@@ -186,9 +194,6 @@ const CompanyName = styled.div`
 	font-weight: 900;
 	font-size: 25px;
 	text-decoration: none;
-	&:visited {
-		color: black;
-	}
 `;
 
 const Meals = styled.span`

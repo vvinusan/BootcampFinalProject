@@ -21,7 +21,7 @@ const Header = () => {
 				{isAuthenticated && (
 					<NavItem to={"/favorites"}>Favorites</NavItem>
 				)}
-				{isAuthenticated && <NavItem to={"/profile"}>Profile</NavItem>}
+				{/* {isAuthenticated && <NavItem to={"/profile"}>Profile</NavItem>} */}
 			</NavWrap>
 		</HeaderWrap>
 	);

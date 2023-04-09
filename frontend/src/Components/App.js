@@ -37,7 +37,7 @@ function App() {
 				/>
 				<Route path="/confirmation" element={<Confirmation />} />
 				<Route path="/favorites" element={<Favorites />} />
-				<Route path="/profile" element={<Profile />} />
+				{/* <Route path="/profile" element={<Profile />} /> */}
 			</Routes>
 		</Router>
 	);

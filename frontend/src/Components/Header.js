@@ -77,7 +77,7 @@ const NavItem = styled(Link)`
 		background-color: teal;
 
 		text-shadow: 0px 0px 3px teal, 0px 0px 30px white;
-		color: #fff;
+		color: white;
 		transition: all 0.3s ease-in-out;
 		scale: 1.1;
 	}

@@ -46,7 +46,7 @@ const Name = styled.div`
 	text-decoration: none;
 	padding-left: 5px;
 	/* color: #99ecea; */
-	color: white;
+	color: darkred;
 	/* color: #39dbd7; */
 	text-shadow: 0px 0px 2px #e4b485, 0px 0px 15px #e4b485;
 

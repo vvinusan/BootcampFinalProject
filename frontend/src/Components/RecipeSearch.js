@@ -190,6 +190,7 @@ const InstructCont = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-shadow: 0px 0px 2px white, 0px 0px 15px white;
 `;
 
 const CompanyName = styled.div`
@@ -207,7 +208,7 @@ const Meals = styled.span`
 	/* color: #253d5b; */
 	/* color: teal; */
 	/* padding: 0 5px; */
-	color: #39dbd7;
+	color: teal;
 `;
 
 const SubMeals = styled.span`
@@ -217,7 +218,7 @@ const SubMeals = styled.span`
 	/* color: #253d5b; */
 	/* color: teal; */
 	padding: 0 5px;
-	color: #39dbd7;
+	color: teal;
 `;
 
 const Movies = styled.span`

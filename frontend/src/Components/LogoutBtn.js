@@ -53,7 +53,9 @@ const Name = styled(Link)`
 		color: teal;
 	}
 	&:hover {
-		text-shadow: 0px 0px 3px teal;
+		color: darkred;
+
+		transition: all 0.3s ease-in-out;
 	}
 `;
 

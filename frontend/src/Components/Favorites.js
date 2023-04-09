@@ -90,11 +90,12 @@ const MainContainer = styled.div`
 
 const SubContainer = styled.div`
 	display: flex;
-	background-color: #284455;
+
+	background-color: #628196;
 	align-items: center;
 	justify-content: space-between;
 	width: 700px;
-	margin: 15px;
+	margin: 25px;
 	padding: 15px;
 	border-radius: 15px;
 	box-shadow: 5px 5px 30px #284455;
@@ -162,7 +163,7 @@ const RecipeCont = styled(Link)`
 	height: 325px;
 	align-items: center;
 	justify-content: space-evenly;
-	background-color: teal;
+	background-color: #284455;
 	/* background-color: #e4b485; */
 	border-radius: 10px;
 	&:visited {

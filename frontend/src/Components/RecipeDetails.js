@@ -117,7 +117,8 @@ const MainCont = styled.div`
 	/* align-items: center; */
 	padding: 15px;
 	/* height: 72vh; */
-	background-image: linear-gradient(to top, #edcba9, white);
+	/* background-image: linear-gradient(to top, #edcba9, white); */
+	background-image: linear-gradient(to top, #284455, white);
 `;
 
 const MainTitle = styled.div`

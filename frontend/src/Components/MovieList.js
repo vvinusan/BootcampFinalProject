@@ -209,7 +209,7 @@ const GenreTitle = styled.div`
 	border-radius: 5px;
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 	background-color: darkred;
-	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+	text-shadow: 0px 0px 5px red, 0px 0px 30px white;
 	color: white;
 	text-align: center;
 `;

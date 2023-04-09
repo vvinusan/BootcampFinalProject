@@ -64,10 +64,16 @@ const MovieList = () => {
 
 	const newFive = movies.length > 0 ? chooseFiveRandom(movies) : [];
 
+	console.log(newFive);
+	console.log(choiceData);
+
 	return (
 		<Wrapper>
 			{genreObj.length > 0 && (
 				<HeadingCont>
+					<Instruct>
+						Read through the selection and make your choice below
+					</Instruct>
 					<GenreTitle>{genreObj[0].name}</GenreTitle>
 					<RefreshBtn onClick={handleRefresh}>
 						Refresh Choices
@@ -79,7 +85,17 @@ const MovieList = () => {
 					newFive.map((movie) => {
 						return (
 							<SubContainer key={movie.id}>
-								<TitleCont>
+								<TitleCont
+								// value={movie.id}
+
+								// onClick={(event) =>
+								// 	handleChoose(
+								// 		"movieId",
+								// 		event.target.value
+
+								// 	)
+								// }
+								>
 									<Title>{movie.title}</Title>
 								</TitleCont>
 								<Img
@@ -89,6 +105,7 @@ const MovieList = () => {
 
 								<Rating>{movie.vote_average}/10</Rating>
 								<Overview>{movie.overview}</Overview>
+
 								<Select
 									value={movie.id}
 									onClick={(event) =>
@@ -111,7 +128,24 @@ const MovieList = () => {
 export default MovieList;
 
 const HeadingCont = styled.div`
+	align-self: center;
 	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 90vw;
+	margin: 10px 0;
+`;
+
+const Instruct = styled.div`
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 18px;
+	text-align: center;
+	font-weight: 900;
+	/* color: #284455; */
+	color: darkred;
+	height: 30px;
+	width: 250px;
+	text-shadow: 0px 0px 10px darkred;
 `;
 
 const Wrapper = styled.div`
@@ -122,8 +156,23 @@ const Wrapper = styled.div`
 `;
 
 const RefreshBtn = styled.button`
-	margin-top: 5px;
-	width: 300px;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	text-shadow: 0px 0px 2px black, 0px 0px 15px black;
+	border-radius: 5px;
+	width: 250px;
+	background-color: #284455;
+	border: none;
+	/* color: #f1d7bd; */
+	color: white;
+	padding: 5px;
+	font-size: 20px;
+	&:hover {
+		color: white;
+		transition: all 0.3s ease-in-out;
+		scale: 1.2;
+		background-color: darkred;
+		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+	}
 `;
 
 const MainContainer = styled.div`
@@ -152,27 +201,36 @@ const Img = styled.img`
 `;
 
 const GenreTitle = styled.div`
-	font-weight: 900;
+	/* font-weight: 900; */
 	font-size: 25px;
+	width: 250px;
+	/* height: 50px; */
+	padding: 15px;
+	border-radius: 5px;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	background-color: darkred;
+	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+	color: white;
+	text-align: center;
 `;
 const Title = styled.div`
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 
 	padding: 5px;
 	font-size: 20px;
-	color: #f1d7bd;
+	/* color: #f1d7bd; */
 	background-color: darkred;
 	border-radius: 5px;
 	text-align: center;
 	width: 190px;
-	/* height: 75px; */
-	/* &:hover {
-		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
-		transition: all 0.2s ease-in-out;
-	} */
+
+	&:hover {
+		color: white;
+	}
 `;
 
 const TitleCont = styled.div`
+	border: none;
 	height: 90px;
 	background-color: darkred;
 	border-radius: 5px;
@@ -181,10 +239,14 @@ const TitleCont = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 5px;
+	color: #f1d7bd;
 	box-shadow: 0px 0px 5px #3e6074;
+	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 	&:hover {
 		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 		transition: all 0.2s ease-in-out;
+		color: white;
+		scale: 1.05;
 	}
 `;
 
@@ -201,4 +263,22 @@ const Overview = styled.div`
 	text-align: center;
 `;
 
-const Select = styled.button``;
+const Select = styled.button`
+	border: none;
+	font-size: 20px;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	background-color: darkred;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+	margin: 10px;
+	color: #f1d7bd;
+	box-shadow: 0px 0px 5px #3e6074;
+	&:hover {
+		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+		transition: all 0.2s ease-in-out;
+		color: white;
+		scale: 1.1;
+		box-shadow: 0px 0px 2px white, 0px 0px 10px white;
+	}
+`;

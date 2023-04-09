@@ -12,7 +12,7 @@ const MovieGenres = () => {
 		<Wrapper>
 			{genres.map((genre) => {
 				return (
-					<GenreCont>
+					<GenreCont key={genre.id}>
 						<MoviesLink
 							key={genre.id}
 							to={`/movielist/${genre.id}`}
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	background-image: linear-gradient(to top, #f1d7bd, white);
+	background-image: linear-gradient(to top, #edcba9, white);
 	/* margin: 30px 2px; */
 	/* padding: ; */
 	height: 80vh;
@@ -48,14 +48,12 @@ const GenreCont = styled.div`
 
 const MoviesLink = styled(Link)`
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-	padding: 5px;
+	padding: 10px;
 	font-size: 20px;
 
-	/* font-weight: 900; */
-	/* border: 2px solid red; */
 	border-radius: 5px;
 	width: 200px;
-	height: 30px;
+
 	text-align: center;
 	margin: 25px 50px;
 	text-shadow: 0px 0px 2px black, 0px 0px 15px black;

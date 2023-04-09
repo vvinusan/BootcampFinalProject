@@ -73,9 +73,10 @@ const NavItem = styled(Link)`
 	background-color: darkred;
 
 	:hover {
-		background-color: #99ecea;
+		/* background-color: #99ecea; */
+		background-color: teal;
 
-		text-shadow: 0px 0px 3px teal, 0px 0px 30px teal;
+		text-shadow: 0px 0px 3px teal, 0px 0px 30px white;
 		color: #fff;
 		transition: all 0.3s ease-in-out;
 		scale: 1.1;
@@ -116,7 +117,7 @@ const HeaderWrap = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 0;
-	padding: 0;
+	padding-bottom: 10px;
 	background-image: linear-gradient(to bottom, #edcba9, white);
 `;
 

@@ -86,9 +86,9 @@ const MovieList = () => {
 									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 									alt={movie.title}
 								/>
-								<Overview>{movie.overview}</Overview>
-								<Rating>{movie.vote_average}/10</Rating>
 
+								<Rating>{movie.vote_average}/10</Rating>
+								<Overview>{movie.overview}</Overview>
 								<Select
 									value={movie.id}
 									onClick={(event) =>
@@ -146,7 +146,7 @@ const SubContainer = styled.div`
 const Img = styled.img`
 	width: 200px;
 	height: auto;
-	margin: 5px 0;
+	margin: 10px 0;
 	box-shadow: 0px 0px 2px white, 0px 0px 10px white;
 	border-radius: 5px;
 `;
@@ -166,9 +166,10 @@ const Title = styled.div`
 	text-align: center;
 	width: 190px;
 	/* height: 75px; */
-	&:hover {
+	/* &:hover {
 		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
-	}
+		transition: all 0.2s ease-in-out;
+	} */
 `;
 
 const TitleCont = styled.div`
@@ -180,18 +181,24 @@ const TitleCont = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 5px;
-	/* &:hover {
-		box-shadow: 0px 0px 2px red, 0px 0px 15px white;
-	} */
+	box-shadow: 0px 0px 5px #3e6074;
+	&:hover {
+		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+		transition: all 0.2s ease-in-out;
+	}
 `;
 
 const Rating = styled.div`
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 25px;
+	color: white;
 `;
 
 const Overview = styled.div`
 	color: #f1d7bd;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	width: 190px;
+	text-align: center;
 `;
 
 const Select = styled.button``;

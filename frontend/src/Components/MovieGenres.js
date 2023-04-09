@@ -58,9 +58,9 @@ const MoviesLink = styled(Link)`
 	height: 30px;
 	text-align: center;
 	margin: 25px 50px;
-	background-color: darkred;
+	text-shadow: 0px 0px 2px black, 0px 0px 15px black;
+	background-color: #284455;
 	text-decoration: none;
-	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 	color: #f1d7bd;
 	&:visited {
 		color: #f1d7bd;
@@ -68,7 +68,8 @@ const MoviesLink = styled(Link)`
 	&:hover {
 		color: white;
 		transition: all 0.3s ease-in-out;
-		scale: 1.3;
-		background-color: red;
+		scale: 1.5;
+		background-color: darkred;
+		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 	}
 `;

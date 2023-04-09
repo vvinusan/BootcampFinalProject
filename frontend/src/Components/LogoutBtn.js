@@ -10,7 +10,7 @@ const LogoutBtn = () => {
 		isAuthenticated && (
 			<Container>
 				<NameCont>
-					Hi, <Name to={"/profile"}> {user.nickname}</Name>
+					Hi, <Name> {user.nickname}</Name>
 				</NameCont>
 				<Btn
 					onClick={() =>
@@ -42,21 +42,18 @@ const NameCont = styled.div`
 	font-weight: 900;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
-const Name = styled(Link)`
+const Name = styled.div`
 	text-decoration: none;
 	padding-left: 5px;
 	/* color: #99ecea; */
-	color: teal;
+	color: white;
 	/* color: #39dbd7; */
-	&:visited {
-		/* color: #99ecea; */
-		color: teal;
-	}
-	&:hover {
-		color: darkred;
+	text-shadow: 0px 0px 2px #e4b485, 0px 0px 15px #e4b485;
 
-		transition: all 0.3s ease-in-out;
-	}
+	/* &:visited {
+
+		color: white;
+	} */
 `;
 
 const Btn = styled.button`

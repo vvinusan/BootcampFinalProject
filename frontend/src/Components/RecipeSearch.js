@@ -110,7 +110,7 @@ const Wrapper = styled.div`
 	padding-top: 20px;
 	height: 100%;
 	/* background-color: #f1d7bd; */
-	background-image: linear-gradient(to top, #f1d7bd, white);
+	background-image: linear-gradient(to top, #edcba9, white);
 `;
 
 const Input = styled.input`
@@ -128,7 +128,7 @@ const Input = styled.input`
 	&:focus {
 		border: teal solid 3px;
 		outline: teal;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.2s ease-in-out;
 	}
 `;
 
@@ -155,6 +155,7 @@ const SearchBtn = styled.button`
 	&:hover {
 		color: white;
 		transition: all 0.3s ease-in-out;
+		text-shadow: 0px 0px 2px darkred, 0px 0px 10px white;
 		background-color: red;
 		scale: 1.1;
 	}
@@ -167,7 +168,7 @@ const InstructBtn = styled.button`
 	padding: 5px;
 	font-size: 20px;
 	width: 130px;
-	text-shadow: 0px 0px 2px darkred, 0px 0px 30px darkred;
+
 	color: white;
 	background-color: darkred;
 	border-radius: 5px;
@@ -176,8 +177,9 @@ const InstructBtn = styled.button`
 	font-weight: 900;
 	&:hover {
 		color: white;
+		text-shadow: 0px 0px 2px teal, 0px 0px 30px white;
 		transition: all 0.3s ease-in-out;
-		background-color: red;
+		background-color: teal;
 		scale: 1.1;
 	}
 `;

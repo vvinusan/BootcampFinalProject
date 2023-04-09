@@ -62,6 +62,8 @@ const Confirmation = () => {
 		setChoiceData({});
 	};
 
+	console.log(choiceData);
+
 	return (
 		<MainCont>
 			confirmation

@@ -71,7 +71,9 @@ const MovieList = () => {
 		<Wrapper>
 			{genreObj.length > 0 && (
 				<HeadingCont>
-					<Instruct>Click on the title to select your movie</Instruct>
+					<Instruct>
+						Read through the selection and make your choice below
+					</Instruct>
 					<GenreTitle>{genreObj[0].name}</GenreTitle>
 					<RefreshBtn onClick={handleRefresh}>
 						Refresh Choices
@@ -216,7 +218,7 @@ const Title = styled.div`
 
 	padding: 5px;
 	font-size: 20px;
-	color: #f1d7bd;
+	/* color: #f1d7bd; */
 	background-color: darkred;
 	border-radius: 5px;
 	text-align: center;
@@ -237,7 +239,9 @@ const TitleCont = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 5px;
+	color: #f1d7bd;
 	box-shadow: 0px 0px 5px #3e6074;
+	text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 	&:hover {
 		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
 		transition: all 0.2s ease-in-out;
@@ -259,4 +263,22 @@ const Overview = styled.div`
 	text-align: center;
 `;
 
-const Select = styled.button``;
+const Select = styled.button`
+	border: none;
+	font-size: 20px;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	background-color: darkred;
+	border-radius: 5px;
+	text-align: center;
+	padding: 5px;
+	margin: 10px;
+	color: #f1d7bd;
+	box-shadow: 0px 0px 5px #3e6074;
+	&:hover {
+		text-shadow: 0px 0px 2px red, 0px 0px 15px white;
+		transition: all 0.2s ease-in-out;
+		color: white;
+		scale: 1.1;
+		box-shadow: 0px 0px 2px white, 0px 0px 10px white;
+	}
+`;

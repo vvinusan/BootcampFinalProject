@@ -60,6 +60,7 @@ const Confirmation = () => {
 		});
 
 		setChoiceData({});
+		window.alert("Saved to favorites!");
 	};
 
 	console.log(choiceData);
@@ -228,7 +229,7 @@ const RecipeCont = styled.div`
 	height: 325px;
 	align-items: center;
 	justify-content: space-evenly;
-	background-color: teal;
+	background-color: #284455;
 	border-radius: 10px;
 `;
 

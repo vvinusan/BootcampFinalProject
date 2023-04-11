@@ -81,7 +81,7 @@ const MovieList = () => {
 				</HeadingCont>
 			)}
 			<MainContainer>
-				{newFive.length !== 0 &&
+				{newFive.length !== 0 ? (
 					newFive.map((movie) => {
 						return (
 							<SubContainer key={movie.id}>
@@ -119,7 +119,10 @@ const MovieList = () => {
 								</Select>
 							</SubContainer>
 						);
-					})}
+					})
+				) : (
+					<>Loading...</>
+				)}
 			</MainContainer>
 		</Wrapper>
 	);

@@ -57,44 +57,51 @@ const RecipeList = ({ recipeList }) => {
 	return (
 		<MainContainer>
 			<SubContainer>
-				{recipeList.length !== 0 ? (
-					recipeList.map((recipe) => {
-						return (
-							<RecipeCont key={recipe.id}>
-								<Title>{recipe.title}</Title>
-								<Img src={recipe.image} alt="image of dish" />
-								<BtnCont>
-									<Select
-										value={recipe.id}
-										onClick={(event) =>
-											handleChoose(
-												"recipeId",
-												event.target.value
-											)
-										}
-									>
-										Select Recipe
-									</Select>
-									<PreviewBtn
-										value={recipe.id}
-										onClick={(event) => {
-											handlePreview(
-												"recipeId",
-												event.target.value
-											);
-										}}
-									>
-										Preview Recipe
-									</PreviewBtn>
-								</BtnCont>
-							</RecipeCont>
-						);
-					})
+				{recipeList.length >= 0 ? (
+					recipeList.length !== 0 ? (
+						recipeList.map((recipe) => {
+							return (
+								<RecipeCont key={recipe.id}>
+									<Title>{recipe.title}</Title>
+									<Img
+										src={recipe.image}
+										alt="image of dish"
+									/>
+									<BtnCont>
+										<Select
+											value={recipe.id}
+											onClick={(event) =>
+												handleChoose(
+													"recipeId",
+													event.target.value
+												)
+											}
+										>
+											Select Recipe
+										</Select>
+										<PreviewBtn
+											value={recipe.id}
+											onClick={(event) => {
+												handlePreview(
+													"recipeId",
+													event.target.value
+												);
+											}}
+										>
+											Preview Recipe
+										</PreviewBtn>
+									</BtnCont>
+								</RecipeCont>
+							);
+						})
+					) : (
+						<NoResults>
+							There are no recipes for the requested ingredients.
+							Please verify spelling or query again
+						</NoResults>
+					)
 				) : (
-					<NoResults>
-						There are no recipes for the requested ingredients.
-						Please verify spelling or query again
-					</NoResults>
+					<>Loading...</>
 				)}
 			</SubContainer>
 			{recipeList.length !== 0 && (
@@ -171,7 +178,11 @@ const SubPrevCont = styled.div`
 	align-items: center;
 `;
 
-const NoResults = styled.div``;
+const NoResults = styled.div`
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 20px;
+	font-weight: 900;
+`;
 
 const MainContainer = styled.div`
 	display: flex;
@@ -242,6 +253,7 @@ const PreviewCont = styled.div`
 	align-items: center;
 	padding: 10px;
 	height: 300px;
+	margin-bottom: 15px;
 `;
 
 const PreviewBtn = styled.button`
@@ -324,6 +336,7 @@ const MissIngredSubCont = styled.div`
 	color: white;
 	padding: 5px;
 	width: 50%;
+	margin-bottom: 15px;
 `;
 
 const AvaiIngredSubCont = styled.div`
@@ -335,6 +348,7 @@ const AvaiIngredSubCont = styled.div`
 	color: white;
 	padding: 5px;
 	width: 50%;
+	margin-bottom: 15px;
 `;
 
 const IngredList = styled.div`

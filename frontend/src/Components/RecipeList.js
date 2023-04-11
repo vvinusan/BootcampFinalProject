@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 
 const RecipeList = ({ recipeList }) => {
-	const { choiceData, setChoiceData } = useContext(Context);
+	const { setChoiceData } = useContext(Context);
 
 	const [preview, setPreview] = useState(false);
 	const [preivewId, setPreviewId] = useState({});
@@ -306,7 +306,6 @@ const BtnCont = styled.div`
 	display: flex;
 `;
 
-//////////////////////////////////
 const IngredCont = styled.div`
 	display: flex;
 	flex-direction: row;

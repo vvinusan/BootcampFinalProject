@@ -146,7 +146,6 @@ const Buttons = styled.div``;
 const SubCont = styled.div`
 	display: flex;
 	align-items: center;
-	/* justify-content: center; */
 `;
 
 const MainTitle = styled.div`

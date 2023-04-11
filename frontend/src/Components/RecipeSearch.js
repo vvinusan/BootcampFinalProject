@@ -55,12 +55,9 @@ const RecipeSearch = () => {
 					</CompanyName>
 					<Cont>
 						<div>
-							Time for dinner! Are you tired of eating out and
-							spending on food? Want to actually make use of your
-							gorceries?
+							Are you tired of eating out and spending on food?
+							Not sure how to pass the time? We got you covered!
 						</div>
-						{/* <div>Look no further than Meals, Movies & I.</div> */}
-
 						<div>
 							Get started by making yourself an account and/or
 							signing in.
@@ -78,7 +75,6 @@ const RecipeSearch = () => {
 							your favorites page where you will have access to
 							further details.
 						</div>
-						<div>The possibilities are endless!</div>
 						<Tag>
 							Start searching, start <SubMeals> cooking</SubMeals>{" "}
 							and start
@@ -109,7 +105,6 @@ const Wrapper = styled.div`
 	justify-content: center;
 	padding-top: 20px;
 	height: 100%;
-	/* background-color: #f1d7bd; */
 	background-image: linear-gradient(to top, #edcba9, white);
 `;
 
@@ -205,9 +200,6 @@ const Meals = styled.span`
 	font-style: italic;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: 500;
-	/* color: #253d5b; */
-	/* color: teal; */
-	/* padding: 0 5px; */
 	color: teal;
 `;
 
@@ -215,8 +207,6 @@ const SubMeals = styled.span`
 	font-style: italic;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: 500;
-	/* color: #253d5b; */
-	/* color: teal; */
 	padding: 0 5px;
 	color: teal;
 `;

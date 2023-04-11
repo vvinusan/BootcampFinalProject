@@ -11,7 +11,6 @@ import MovieGenres from "./MovieGenres";
 import MovieList from "./MovieList";
 import MovieDetails from "./MovieDetails";
 import Confirmation from "./Confirmation";
-import Profile from "./Profile";
 
 function App() {
 	return (
@@ -21,10 +20,8 @@ function App() {
 				<LoginBtn />
 				<LogoutBtn />
 			</HeadWrap>
-
 			<Routes>
 				<Route path="/" element={<HomePage />} />
-
 				<Route path="/genres" element={<MovieGenres />} />
 				<Route
 					path="/recipedetails/:recipeId"
@@ -37,7 +34,6 @@ function App() {
 				/>
 				<Route path="/confirmation" element={<Confirmation />} />
 				<Route path="/favorites" element={<Favorites />} />
-				{/* <Route path="/profile" element={<Profile />} /> */}
 			</Routes>
 		</Router>
 	);

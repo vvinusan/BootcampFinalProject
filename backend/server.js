@@ -32,7 +32,7 @@ express()
 	//Retrieves entire favorites collection
 	.get("/getFavorites", getFavorites)
 
-	//Deleted specific item from cart
+	//Deleted specific COMBO from favorites
 	.delete("/deleteFavorite/:favItemId", deleteFavById)
 
 	//Error message

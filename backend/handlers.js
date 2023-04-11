@@ -11,7 +11,7 @@ const options = {
 //Unique id generation
 const { v4: uuidv4 } = require("uuid");
 
-//ADD ITEM TO FAVORITES COLLECTION
+//ADD COMBO TO FAVORITES COLLECTION
 
 const addFavorite = async (request, response) => {
 	const client = new MongoClient(MONGO_URI, options);
@@ -80,7 +80,7 @@ const addFavorite = async (request, response) => {
 	}
 };
 
-//RETRIEVE ENTIRE FAVORITES COLLECTION
+//RETRIEVE ENTIRE FAVORITES LIST
 
 const getFavorites = async (request, response) => {
 	const client = new MongoClient(MONGO_URI, options);
@@ -104,7 +104,7 @@ const getFavorites = async (request, response) => {
 	}
 };
 
-//DELETED ITEM FROM CART COLLECTION
+//DELETE COMBO FROM FAVORITES
 
 const deleteFavById = async (request, response) => {
 	const client = new MongoClient(MONGO_URI, options);

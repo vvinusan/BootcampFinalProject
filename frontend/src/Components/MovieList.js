@@ -85,27 +85,15 @@ const MovieList = () => {
 					newFive.map((movie) => {
 						return (
 							<SubContainer key={movie.id}>
-								<TitleCont
-								// value={movie.id}
-
-								// onClick={(event) =>
-								// 	handleChoose(
-								// 		"movieId",
-								// 		event.target.value
-
-								// 	)
-								// }
-								>
+								<TitleCont>
 									<Title>{movie.title}</Title>
 								</TitleCont>
 								<Img
 									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 									alt={movie.title}
 								/>
-
 								<Rating>{movie.vote_average}/10</Rating>
 								<Overview>{movie.overview}</Overview>
-
 								<Select
 									value={movie.id}
 									onClick={(event) =>
@@ -144,7 +132,6 @@ const Instruct = styled.div`
 	font-size: 18px;
 	text-align: center;
 	font-weight: 900;
-	/* color: #284455; */
 	color: darkred;
 	height: 30px;
 	width: 250px;
@@ -165,7 +152,6 @@ const RefreshBtn = styled.button`
 	width: 250px;
 	background-color: #284455;
 	border: none;
-	/* color: #f1d7bd; */
 	color: white;
 	padding: 5px;
 	font-size: 20px;
@@ -181,13 +167,11 @@ const RefreshBtn = styled.button`
 const MainContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
-	/* width: 500px; */
 `;
 const SubContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	/* justify-content: space-around; */
 	padding: 15px 8px;
 	background-color: #284455;
 	margin: 10px;
@@ -204,10 +188,8 @@ const Img = styled.img`
 `;
 
 const GenreTitle = styled.div`
-	/* font-weight: 900; */
 	font-size: 25px;
 	width: 250px;
-	/* height: 50px; */
 	padding: 15px;
 	border-radius: 5px;
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -221,7 +203,6 @@ const Title = styled.div`
 
 	padding: 5px;
 	font-size: 20px;
-	/* color: #f1d7bd; */
 	background-color: darkred;
 	border-radius: 5px;
 	text-align: center;

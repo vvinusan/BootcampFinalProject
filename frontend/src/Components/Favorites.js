@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Favorites = () => {
-	const { user, isAuthenticated } = useAuth0();
+	const { user } = useAuth0();
 
 	const [favorites, setFavorites] = useState([]);
 
@@ -144,9 +144,7 @@ const MovieCont = styled(Link)`
 	justify-content: center;
 	background-color: darkred;
 	border-radius: 10px;
-	/* color: black; */
-	/* border: solid green 2px; */
-	/* box-shadow: 0px 0px 30px darkred; */
+
 	&:visited {
 		color: black;
 	}
@@ -170,7 +168,7 @@ const RecipeCont = styled(Link)`
 	align-items: center;
 	justify-content: space-evenly;
 	background-color: #284455;
-	/* background-color: #e4b485; */
+
 	border-radius: 10px;
 	&:visited {
 		color: black;
@@ -211,7 +209,7 @@ const DeleteBtn = styled.button`
 	padding: 10px 15px;
 	margin-right: 10px;
 	font-size: 20px;
-	/* width: 120px; */
+
 	color: white;
 	background-color: red;
 	border-radius: 5px;

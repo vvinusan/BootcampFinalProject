@@ -9,7 +9,6 @@ const Provider = ({ children }) => {
 
 	const [userId, setUserId] = useState(null);
 	const [genres, setGenres] = useState([]);
-	const [saved, setSaved] = useState([]);
 	const [choiceData, setChoiceData] = useState({});
 
 	useEffect(() => {
@@ -39,9 +38,6 @@ const Provider = ({ children }) => {
 			value={{
 				userId,
 				setUserId,
-				saved,
-				setSaved,
-
 				choiceData,
 				setChoiceData,
 				genres,

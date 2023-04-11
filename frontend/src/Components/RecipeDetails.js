@@ -113,11 +113,7 @@ const RecipeDetails = () => {
 export default RecipeDetails;
 const MainCont = styled.div`
 	display: flex;
-	/* flex-direction: column; */
-	/* align-items: center; */
 	padding: 15px;
-	/* height: 72vh; */
-	/* background-image: linear-gradient(to top, #edcba9, white); */
 	background-image: linear-gradient(to top, #284455, white);
 `;
 
@@ -142,7 +138,6 @@ const InstructCont = styled.div`
 	flex-direction: column;
 	border-radius: 15px;
 	padding: 15px;
-	/* width: 70%; */
 	font-size: 18px;
 	background-image: linear-gradient(to bottom, #e4b485, #f1d7bd);
 	text-shadow: 0px 0px 2px white, 0px 0px 15px white;
@@ -154,10 +149,6 @@ const SubCont = styled.div`
 	align-items: center;
 	width: 30%;
 `;
-
-// const Steps = styled.div`
-// 	margin: 10px;
-// `;
 
 const Step = styled.div`
 	margin: 10px;
@@ -174,7 +165,6 @@ const Info = styled.div`
 const SubInfo = styled.span``;
 
 const Aside = styled.div`
-	/* width: 25%; */
 	padding: 15px;
 	margin: 15px;
 	font-size: 15px;
@@ -185,7 +175,6 @@ const Aside = styled.div`
 `;
 
 const MiscInfo = styled.div`
-	/* width: 20%; */
 	padding: 10px;
 	display: flex;
 	color: white;
@@ -204,7 +193,6 @@ const DietInfo = styled.div`
 `;
 
 const IngredCont = styled.div`
-	/* width: 20%; */
 	padding: 10px;
 	border-radius: 15px;
 	display: flex;
@@ -227,7 +215,6 @@ const Img = styled.img`
 const Heading = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
 	align-items: center;
 	width: 70%;
 `;

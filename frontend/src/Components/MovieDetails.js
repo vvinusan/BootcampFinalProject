@@ -57,17 +57,13 @@ const MainCont = styled.div`
 
 const SubCont = styled.div`
 	display: flex;
-	/* justify-content: center; */
 `;
 const DetailsCont = styled.div`
 	border-radius: 15px;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	/* background-color: rgba(0, 0, 0, 0.5); */
 	background-image: linear-gradient(to bottom, #284455, #3e6074);
-	/* height: 400px; */
 	margin: 35px 25px 35px 0;
 	padding: 0 5px;
 `;
@@ -75,9 +71,7 @@ const DetailsCont = styled.div`
 const Title = styled.div`
 	align-self: center;
 	font-weight: 100;
-
 	font-size: 25px;
-
 	padding: 15px;
 	border-radius: 5px;
 	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;

@@ -21,7 +21,6 @@ const Header = () => {
 				{isAuthenticated && (
 					<NavItem to={"/favorites"}>Favorites</NavItem>
 				)}
-				{/* {isAuthenticated && <NavItem to={"/profile"}>Profile</NavItem>} */}
 			</NavWrap>
 		</HeaderWrap>
 	);
@@ -34,7 +33,6 @@ const HomeLink = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* background-color: #f1d7bd; */
 	margin: 10px 0 0 10px;
 	width: 300px;
 	padding: 5px;
@@ -45,9 +43,7 @@ const Meals = styled.span`
 	font-style: italic;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-weight: 700;
-	/* color: #253d5b; */
 	color: teal;
-	/* color: #39dbd7; */
 `;
 
 const Movies = styled.span`
@@ -59,23 +55,18 @@ const AndI = styled.span``;
 
 const NavItem = styled(Link)`
 	padding: 10px 35px;
-	/* text-shadow: 0px 0px 5px black; */
 	text-decoration: none;
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 	font-weight: 900;
-	/* color: #284455; */
 	color: white;
 	font-size: 25px;
 	border-radius: 5px;
 	margin: 5px 20px;
 	box-sizing: border-box;
-	/* background-color: #99ecea; */
 	background-color: darkred;
 
 	:hover {
-		/* background-color: #99ecea; */
 		background-color: teal;
-
 		text-shadow: 0px 0px 3px teal, 0px 0px 30px white;
 		color: white;
 		transition: all 0.3s ease-in-out;

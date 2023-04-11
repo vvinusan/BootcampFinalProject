@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
 
 const LogoutBtn = () => {
 	const { logout, isAuthenticated, user } = useAuth0();
@@ -45,15 +44,8 @@ const NameCont = styled.div`
 const Name = styled.div`
 	text-decoration: none;
 	padding-left: 5px;
-	/* color: #99ecea; */
 	color: darkred;
-	/* color: #39dbd7; */
 	text-shadow: 0px 0px 2px #e4b485, 0px 0px 15px #e4b485;
-
-	/* &:visited {
-
-		color: white;
-	} */
 `;
 
 const Btn = styled.button`

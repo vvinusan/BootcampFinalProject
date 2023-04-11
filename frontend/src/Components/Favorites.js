@@ -40,7 +40,7 @@ const Favorites = () => {
 
 	return currentUserFav.length !== 0 ? (
 		<MainContainer>
-			Click on recipes or movies for further details
+			<Instruct>Click on recipes or movies for further details</Instruct>
 			{currentUserFav.map((favItem) => {
 				return (
 					<SubContainer key={favItem._id}>
@@ -80,6 +80,12 @@ const Favorites = () => {
 };
 
 export default Favorites;
+
+const Instruct = styled.div`
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: 20px;
+	font-weight: 900;
+`;
 
 const MainContainer = styled.div`
 	display: flex;
